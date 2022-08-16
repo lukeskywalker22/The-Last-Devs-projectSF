@@ -1,0 +1,34 @@
+# Uncomment the next line to define a global platform for your project
+
+platform :ios, '15.5'
+
+target 'Messenger' do
+  
+use_frameworks!
+
+# Firebase
+pod 'Firebase/Core'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
+pod 'Firebase/Storage'
+pod 'Firebase/Analytics'
+pod 'Firebase/Crashlytics'
+
+# Facebook
+pod 'FBSDKLoginKit'
+pod 'FBSDKCoreKit'
+    
+# Google Sign In
+pod 'GoogleSignIn', '5.0.2'
+
+# Messaging
+pod 'MessageKit'
+pod 'JGProgressHUD'
+pod 'SDWebImage'
+
+# Calls
+# pod 'AgoraUIKit_iOS'
+# pod 'AgoraRtcEngine_iOS'
+# pod 'AgoraRtmControl_iOS'
+
+end
