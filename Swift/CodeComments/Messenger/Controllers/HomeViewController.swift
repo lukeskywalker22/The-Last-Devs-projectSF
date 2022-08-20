@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import JGProgressHUD
 
-class ConversationsViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     private let spinner = JGProgressHUD(style: .dark)
     
@@ -22,8 +22,6 @@ class ConversationsViewController: UIViewController {
                        forCellReuseIdentifier: ConversationTableViewCell.identifier)
         return table
     }()*/
-    
-    @IBOutlet weak var tableView: UITableView!
     
     //private let chatSearchBar: UISearchBar = {
         //let searchBar = UISearchBar()
@@ -190,7 +188,7 @@ class ConversationsViewController: UIViewController {
     }
 }
 
-extension ConversationsViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return conversations.count

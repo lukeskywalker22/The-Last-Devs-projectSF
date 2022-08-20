@@ -26,7 +26,7 @@ class UserGuideViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        memeView.frame = CGRect(x: view.center.x, y: view.center.y, width: view.width, height: view.height - 30)
+        memeView.frame = view.bounds
     }
 
     /*

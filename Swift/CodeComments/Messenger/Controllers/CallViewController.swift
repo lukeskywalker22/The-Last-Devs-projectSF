@@ -7,19 +7,19 @@
 
 import UIKit
 
-import AgoraUIKit
-import AgoraRtcKit
-import AgoraRtmKit
-import AgoraRtmControl
+//import AgoraUIKit
+//import AgoraRtcKit
+//import AgoraRtmKit
+//import AgoraRtmControl
 
 class CallViewController: UIViewController {
     
-    var agoraView: AgoraVideoViewer!
+   // var agoraView: AgoraVideoViewer!
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        var agSettings = AgoraSettings()
+        /*var agSettings = AgoraSettings()
         func leaveChannel(){
             agoraView.leaveChannel()
         }
@@ -50,17 +50,17 @@ class CallViewController: UIViewController {
         agoraView.style = .grid // or .floating
         
         // join the channel "test"
-        agoraView.join(channel: "test", as: .broadcaster)
+        agoraView.join(channel: "test", as: .broadcaster)*/
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        AgoraRtcEngineKit.destroy()
+        /*AgoraRtcEngineKit.destroy()*/
     }
     
 }
 
-extension CallViewController: AgoraVideoViewerDelegate {
+/*extension CallViewController: AgoraVideoViewerDelegate {
     public func extraButtons() -> [UIButton] {
         let button = UIButton()
         button.setImage(UIImage(
@@ -83,4 +83,4 @@ extension CallViewController: AgoraVideoViewerDelegate {
         sender.backgroundColor = sender.isSelected ?
             .systemRed : .systemRed
     }
-}
+}*/

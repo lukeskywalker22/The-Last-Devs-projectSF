@@ -25,7 +25,7 @@ final class ProfileViewController: UIViewController {
         data.append(ProfileViewModel(viewModelType: .info, title: "Name: \(UserDefaults.standard.value(forKey: "name") as? String ?? "No name")", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "Email: \(UserDefaults.standard.value(forKey: "email") as? String ?? "No email")", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "Bio: \(UserDefaults.standard.value(forKey: "bio") as? String ?? "No Bio")", handler: nil))
-        data.append(ProfileViewModel(viewModelType: .button, title: "Visit User guide", handler: { 
+        data.append(ProfileViewModel(viewModelType: .button, title: "Help and support", handler: { 
             let vc = UserGuideViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         }))

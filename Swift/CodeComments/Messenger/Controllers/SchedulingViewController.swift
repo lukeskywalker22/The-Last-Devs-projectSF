@@ -30,9 +30,7 @@ class SchedulingViewController: UIViewController, EKEventEditViewDelegate {
         
         let myURL = URL(string:"https://www.icloud.com/calendar")
         let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
-        webView.frame = view.bounds
-        
+        webView.load(myRequest)        
     }
     
     @objc func didTapAdd() {

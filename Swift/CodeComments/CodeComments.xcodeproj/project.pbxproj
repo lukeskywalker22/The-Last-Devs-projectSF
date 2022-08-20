@@ -36,6 +36,7 @@
 		A8EF2463284E208300640C0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8EF2462284E208300640C0C /* GoogleService-Info.plist */; };
 		A8EF2465284E2B7B00640C0C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EF2464284E2B7B00640C0C /* ChatViewController.swift */; };
 		A8F8D313287C03AE001DED9B /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8D312287C03AE001DED9B /* CallViewController.swift */; };
+		A8FF746D28B0BA3100670EB0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FF746C28B0BA2B00670EB0 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,6 +86,7 @@
 		A8EF2462284E208300640C0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A8EF2464284E2B7B00640C0C /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A8F8D312287C03AE001DED9B /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
+		A8FF746C28B0BA2B00670EB0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B3A0185FE0A05D46B9B113F0 /* Pods-Messenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messenger.release.xcconfig"; path = "Target Support Files/Pods-Messenger/Pods-Messenger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,10 +164,11 @@
 		A8B72D32282245FD00007F79 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A8B72D222822447E00007F79 /* ConversationsViewController.swift */,
 				A881EB05282249C7008F9FFA /* Login */,
+				A8B72D222822447E00007F79 /* ConversationsViewController.swift */,
 				A881EAFD28224838008F9FFA /* PhotoViewerViewController.swift */,
 				A82EFF4428958D4D0045F78F /* OtherUserViewController.swift */,
+				A8FF746C28B0BA2B00670EB0 /* HomeViewController.swift */,
 				A8AE4C59289811E3004E0E80 /* ProfileViewController.swift */,
 				A8EE1D6C289EC1140061C441 /* SchedulingViewController.swift */,
 				A80ACCAE28A14844003EA4A7 /* UserGuideViewController.swift */,
@@ -383,6 +386,7 @@
 				A8EE1D6D289EC1140061C441 /* SchedulingViewController.swift in Sources */,
 				A8DA68B428421ABC0084A297 /* DatabaseManager.swift in Sources */,
 				A881EAFC28224811008F9FFA /* RegisterViewController.swift in Sources */,
+				A8FF746D28B0BA3100670EB0 /* HomeViewController.swift in Sources */,
 				A881EB0228224877008F9FFA /* NewConversationViewController.swift in Sources */,
 				A8B72D232822447E00007F79 /* ConversationsViewController.swift in Sources */,
 				A85A382828609C9A004CA794 /* ConversationTableViewCell.swift in Sources */,

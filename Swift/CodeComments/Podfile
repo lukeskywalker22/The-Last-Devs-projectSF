@@ -27,8 +27,8 @@ pod 'JGProgressHUD'
 pod 'SDWebImage'
 
 # Calls
-# pod 'AgoraUIKit_iOS'
-# pod 'AgoraRtcEngine_iOS'
-# pod 'AgoraRtmControl_iOS'
+pod 'AgoraUIKit_iOS'
+pod 'AgoraRtcEngine_iOS'
+pod 'AgoraRtmControl_iOS'
 
 end
