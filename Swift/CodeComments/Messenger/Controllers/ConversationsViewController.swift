@@ -47,6 +47,7 @@ class ConversationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.isHidden = true
+        tableView.layer.cornerRadius = 15
         tableView.register(ConversationTableViewCell.self, forCellReuseIdentifier: ConversationTableViewCell.identifier)
         let composeButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(didTapComposeButton))
         navigationItem.rightBarButtonItems = [composeButton]

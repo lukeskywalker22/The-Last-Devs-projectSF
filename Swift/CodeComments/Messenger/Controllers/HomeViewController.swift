@@ -15,6 +15,10 @@ class HomeViewController: UIViewController {
     
     var conversations = [Conversation]()
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var classesView: UITableView!
+    
     /*private let tableView: UITableView = {
         let table = UITableView()
         table.isHidden = true
@@ -45,6 +49,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.isHidden = true
+        tableView.layer.cornerRadius = 15
         tableView.register(ConversationTableViewCell.self, forCellReuseIdentifier: ConversationTableViewCell.identifier)
         let composeButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(didTapComposeButton))
         navigationItem.rightBarButtonItems = [composeButton]
@@ -160,8 +165,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        noConversationsLabel.frame = CGRect(x: 10, y: (view.height-100)/2, width: view.width-20, height: 100)
-        tableView.frame = view.bounds
+        noConversationsLabel.frame = CGRect(x: 10, y: ((view.height-100)/2)+200, width: view.width-20, height: 100)
         tableView.reloadData()
     }
     

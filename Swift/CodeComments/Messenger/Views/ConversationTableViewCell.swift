@@ -46,7 +46,7 @@ class ConversationTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        self.layer.cornerRadius = 15
         userImageView.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
         userNameLabel.frame = CGRect(x: userImageView.right + 10, y: 10, width: contentView.width - 20 - userImageView.width, height: (contentView.height-20)/2)
         userMessageLabel.frame = CGRect(x: userImageView.right + 10, y: userNameLabel.bottom + 5, width: contentView.width - 20 - userImageView.width, height: (contentView.height-50)/2)
