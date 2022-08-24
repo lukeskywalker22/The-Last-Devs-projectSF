@@ -11,6 +11,7 @@ import UIKit
 import EventKitUI
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DisplaysCalendars {
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var footerLabel: UILabel!
     

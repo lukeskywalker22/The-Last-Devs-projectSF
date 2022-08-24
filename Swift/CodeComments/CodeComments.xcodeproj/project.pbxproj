@@ -34,7 +34,6 @@
 		A8B72D282822448400007F79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8B72D272822448400007F79 /* Assets.xcassets */; };
 		A8B72D2B2822448400007F79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B72D292822448400007F79 /* LaunchScreen.storyboard */; };
 		A8BB8E2428B31BB800FFA2A5 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BB8E2228B31BB800FFA2A5 /* EventCell.swift */; };
-		A8BB8E2528B31BB800FFA2A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BB8E2328B31BB800FFA2A5 /* ViewController.swift */; };
 		A8DA68B428421ABC0084A297 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DA68B328421ABC0084A297 /* DatabaseManager.swift */; };
 		A8DB57642874778600C8AA05 /* ConversationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB57632874778600C8AA05 /* ConversationModels.swift */; };
 		A8DB5766287477CA00C8AA05 /* ChatModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB5765287477CA00C8AA05 /* ChatModels.swift */; };
@@ -424,7 +423,6 @@
 				A881EAFA282247FE008F9FFA /* LoginViewController.swift in Sources */,
 				A89A5EA5286532DB00B9E00E /* NewConversationCell.swift in Sources */,
 				A8DB576A2874786E00C8AA05 /* ProfileViewModel.swift in Sources */,
-				A8BB8E2528B31BB800FFA2A5 /* ViewController.swift in Sources */,
 				A8F8D313287C03AE001DED9B /* CallViewController.swift in Sources */,
 				A8EE1D6D289EC1140061C441 /* SchedulingViewController.swift in Sources */,
 				A8DA68B428421ABC0084A297 /* DatabaseManager.swift in Sources */,

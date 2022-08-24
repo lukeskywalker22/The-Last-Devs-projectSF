@@ -100,6 +100,7 @@ class ChatViewController: MessagesViewController {
     
     private func setupInputButton() {
         let button = InputBarButtonItem()
+        button.setImage(UIImage(named: "paperclip"), for: .normal)
         button.setSize(CGSize(width: 35, height: 35), animated: false)
         button.onTouchUpInside( { [weak self] _ in
             self?.presentInputActionSheet()

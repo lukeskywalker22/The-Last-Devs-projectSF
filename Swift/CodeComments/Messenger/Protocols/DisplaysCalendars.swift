@@ -34,7 +34,7 @@ extension DisplaysCalendars {
     }
     
     private func imageStringAttachment(for calendar: EKCalendar, with uniformSize: CGFloat) -> NSTextAttachment {
-        let image = UIImage(named: "dot")!.withTintColor(UIColor(cgColor: calendar.cgColor))
+        let image = UIImage(named: "dot")?.withTintColor(UIColor(cgColor: calendar.cgColor))
         let attachment = NSTextAttachment()
         attachment.bounds = CGRect(x: 0, y: 0, width: uniformSize, height: uniformSize)
         attachment.image = image
