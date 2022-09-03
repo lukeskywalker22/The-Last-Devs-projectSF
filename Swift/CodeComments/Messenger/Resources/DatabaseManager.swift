@@ -69,7 +69,9 @@ extension DatabaseManager {
         database.child(user.safeEmail).setValue([
             "first_name": user.firstName,
             "last_name": user.lastName,
-            "bio": user.bio
+            "bio": user.bio,
+            "occupation": user.occupation,
+            "codingLanguage": user.codingLanguage
         ], withCompletionBlock: { [weak self] error, _ in
             
             guard let strongSelf = self else {
@@ -77,7 +79,7 @@ extension DatabaseManager {
             }
             
             guard error == nil else {
-                print("failed ot write to database")
+                print("failed to write to database")
                 completion(false)
                 return
             }
@@ -88,7 +90,9 @@ extension DatabaseManager {
                     let newElement = [
                         "name": user.firstName + " " + user.lastName,
                         "email": user.safeEmail,
-                        "bio": user.bio
+                        "bio": user.bio,
+                        "occupation": user.occupation,
+                        "codingLanguage": user.codingLanguage
                     ]
                     usersCollection.append(newElement)
                     
@@ -107,7 +111,9 @@ extension DatabaseManager {
                         [
                             "name": user.firstName + " " + user.lastName,
                             "email": user.safeEmail,
-                            "bio": user.bio
+                            "bio": user.bio,
+                            "occupation": user.occupation,
+                            "codingLanguage": user.codingLanguage
                         ]
                     ]
                     
@@ -769,6 +775,8 @@ struct ChatAppUser {
     let lastName: String
     let emailAddress: String
     let bio: String
+    let occupation: String
+    let codingLanguage: String
     
     var safeEmail: String {
         var safeEmail = emailAddress.replacingOccurrences(of: ".", with: "-")

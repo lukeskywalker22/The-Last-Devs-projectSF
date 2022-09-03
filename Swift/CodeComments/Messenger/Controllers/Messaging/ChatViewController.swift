@@ -31,9 +31,11 @@ class ChatViewController: MessagesViewController {
     }()
     
     public let otherUserEmail: String
-    public var otherUserBio: String = ""
+    public var otherUserOccupation: String?
+    public var otherUserBio: String?
     private var conversationId: String?
     public var isNewConversation = false
+    private var codingLanguage: String?
     
     private var messages = [Message]()
     
@@ -53,6 +55,7 @@ class ChatViewController: MessagesViewController {
     init(with email: String, id: String?) {
         conversationId = id
         otherUserEmail = email
+        otherUserOccupation = ""
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -86,22 +89,25 @@ class ChatViewController: MessagesViewController {
         database.child("\(DatabaseManager.safeEmail(emailAddress: otherUserEmail))").observeSingleEvent(of: .value, with: { snapshot in
             // Get user value
             let value = snapshot.value as? NSDictionary
-            self.otherUserBio = value?["bio"] as? String ?? "nil"
-            print(self.otherUserBio)
+            self.otherUserBio = value!["bio"] as? String
+            self.otherUserOccupation = value!["occupation"] as? String
+            self.codingLanguage = value!["codingLanguage"] as? String
+            print(self.otherUserBio!)
+            print(self.otherUserOccupation!)
             
             // ...
         }) { error in
             print(error.localizedDescription)
         }
-        let vc = OtherUserViewController(with: otherUserEmail, name: self.title!, bio: self.otherUserBio)
+        let vc = OtherUserViewController(with: otherUserEmail, otherUserOccupation: self.otherUserOccupation ?? "Unable to retrieve", name: self.title!, bio: self.otherUserBio ?? "Unable to retrieve", codingLanguage: self.codingLanguage ?? "Unable to retrieve")
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
     
     private func setupInputButton() {
         let button = InputBarButtonItem()
-        button.setImage(UIImage(named: "paperclip"), for: .normal)
         button.setSize(CGSize(width: 35, height: 35), animated: false)
+        button.setImage(UIImage(systemName: "paperclip"), for: .normal)
         button.onTouchUpInside( { [weak self] _ in
             self?.presentInputActionSheet()
         })

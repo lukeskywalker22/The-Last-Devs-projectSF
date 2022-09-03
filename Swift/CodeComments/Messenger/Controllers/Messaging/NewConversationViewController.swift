@@ -152,13 +152,17 @@ extension NewConversationViewController: UISearchBarDelegate {
                 return false
             }
             
+            guard let codingLanguage = $0["codingLanguage"]?.lowercased() else {
+                return false
+            }
+            
             return name.hasPrefix(term.lowercased())
         }).compactMap({
-            guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"] else {
+            guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"], let codingLanguage = $0["codingLanguage"] else {
                 return nil
             }
             
-            return SearchResult(name: name, email: email, bio: bio)
+            return SearchResult(name: name, email: email, bio: bio, codingLanguage: codingLanguage)
         })
         
         self.results = results

@@ -13,13 +13,15 @@ import SDWebImage
 import FirebaseCore
 import FirebaseDatabase
 
-final class OtherUserViewController: UIViewController {
+class OtherUserViewController: UIViewController {
     
     var chingchenghanji: DatabaseReference! = Database.database().reference()
     
     var pfpEmail: String = ""
+    var pfpOccupation = ""
     var otherUserName: String = ""
     var otherUserBio = ""
+    var otherUserCodingLanguage = ""
     
     var data = [ProfileViewModel]()
     
@@ -28,11 +30,13 @@ final class OtherUserViewController: UIViewController {
         return tableView
     }()
     
-    init(with otherUserEmail: String, name: String, bio: String) {
+    init(with otherUserEmail: String, otherUserOccupation: String, name: String, bio: String, codingLanguage: String) {
+        pfpOccupation = otherUserOccupation
         pfpEmail = otherUserEmail
         otherUserName = name
         otherUserBio = bio
-        print(otherUserBio)
+        otherUserCodingLanguage = codingLanguage
+        print("bio: \(otherUserBio)")
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,18 +48,20 @@ final class OtherUserViewController: UIViewController {
         super.viewDidLoad()
         self.title = "About"
         view.addSubview(tableView)
-        getUserBio()
         view.backgroundColor = .systemBackground
-        
         tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "ProfileTableViewCell")
         data.append(ProfileViewModel(viewModelType: .info, title: "Name: \(otherUserName)", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "About: \((otherUserBio))", handler: nil))
+        data.append(ProfileViewModel(viewModelType: .info, title: "Occupation: \(pfpOccupation)", handler: nil))
+        data.append(ProfileViewModel(viewModelType: .info, title: "Coding Language: \(otherUserCodingLanguage)", handler: nil))
         
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableHeaderView = createTableHeader()
+        getUserBio()
+        tableView.reloadData()
     }
     
     func getUserBio() {
@@ -63,11 +69,11 @@ final class OtherUserViewController: UIViewController {
             // Get user value
             let value = snapshot.value as? NSDictionary
             self.otherUserBio = value?["bio"] as? String ?? "nil"
-            print(self.otherUserBio)
+            print("yes but no: \(self.otherUserBio)")
             
             // ...
         }) { error in
-            print(error.localizedDescription)
+            print(String(describing: error.localizedDescription))
         }
     }
     

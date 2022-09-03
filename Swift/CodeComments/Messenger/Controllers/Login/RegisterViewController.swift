@@ -106,6 +106,42 @@ final class RegisterViewController: UIViewController {
         return field
     }()
     
+    private let languageField: UITextField = {
+        let field = UITextField()
+        field.autocapitalizationType = .none
+        field.autocorrectionType = .no
+        field.returnKeyType = .done
+        field.layer.cornerRadius = 12
+        field.layer.borderWidth = 1
+        field.layer.borderColor = UIColor.lightGray.cgColor
+        field.placeholder = "Coding language you specialise in..."
+        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
+        field.leftViewMode = .always
+        field.backgroundColor = .secondarySystemBackground
+        return field
+    }()
+    
+    private let questionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Are you signing up as a student or teacher?"
+        return label
+    }()
+    
+    private let occupationField: UITextField = {
+        let field = UITextField()
+        field.autocapitalizationType = .none
+        field.autocorrectionType = .no
+        field.returnKeyType = .done
+        field.layer.cornerRadius = 12
+        field.layer.borderWidth = 1
+        field.layer.borderColor = UIColor.lightGray.cgColor
+        field.placeholder = "Enter your status (student/teacher)"
+        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
+        field.leftViewMode = .always
+        field.backgroundColor = .secondarySystemBackground
+        return field
+    }()
+    
     private let registerButton: UIButton = {
         let button = UIButton()
         button.setTitle("Register", for: .normal)
@@ -140,6 +176,9 @@ final class RegisterViewController: UIViewController {
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
         scrollView.addSubview(bioField)
+        scrollView.addSubview(questionLabel)
+        scrollView.addSubview(occupationField)
+        scrollView.addSubview(languageField)
         scrollView.addSubview(registerButton)
         
         imageView.isUserInteractionEnabled = true
@@ -169,7 +208,10 @@ final class RegisterViewController: UIViewController {
         emailField.frame = CGRect(x: 30, y: lastNameField.bottom+10, width: scrollView.width-60, height: 52)
         passwordField.frame = CGRect(x: 30, y: emailField.bottom+10, width: scrollView.width-60, height: 52)
         bioField.frame = CGRect(x: 30, y: passwordField.bottom+10, width: scrollView.width-60, height: 104)
-        registerButton.frame = CGRect(x: 30, y: bioField.bottom+10, width: scrollView.width-60, height: 52)
+        questionLabel.frame = CGRect(x: 30, y: bioField.bottom+10, width: scrollView.width-60, height: 40)
+        occupationField.frame = CGRect(x: 30, y: questionLabel.bottom+10, width: scrollView.width-60, height: 52)
+        languageField.frame = CGRect(x: 30, y: occupationField.bottom+10, width: scrollView.width-60, height: 52)
+        registerButton.frame = CGRect(x: 30, y: languageField.bottom+10, width: scrollView.width-60, height: 52)
     }
     
     @objc private func registerButtonTapped() {
@@ -184,11 +226,15 @@ final class RegisterViewController: UIViewController {
               let lastName = lastNameField.text,
               let email = emailField.text, let password = passwordField.text,
               let bio = bioField.text,
+              let occupation = occupationField.text,
+              let codingLanguage = languageField.text,
               !email.isEmpty,
               !password.isEmpty,
               !firstName.isEmpty,
               !lastName.isEmpty,
               !bio.isEmpty,
+              !occupation.isEmpty,
+              !codingLanguage.isEmpty,
               password.count >= 6 else {
             alertUserLoginError()
             return
@@ -217,13 +263,15 @@ final class RegisterViewController: UIViewController {
                 guard authResult != nil, error == nil else {
                     print("Error creating user: \(String(describing: error))")
                     return
-                } 
+                }
                 
                 UserDefaults.standard.setValue(email, forKey: "email")
                 UserDefaults.standard.setValue("\(firstName) \(lastName)", forKey: "name")
                 UserDefaults.standard.setValue(bio, forKey: "bio")
+                UserDefaults.standard.setValue(codingLanguage, forKey: "codingLanguage")
+                UserDefaults.standard.setValue(occupation, forKey: "occupation")
                 
-                let chatUser = ChatAppUser(firstName: firstName, lastName: lastName, emailAddress: email, bio: bio)
+                let chatUser = ChatAppUser(firstName: firstName, lastName: lastName, emailAddress: email, bio: bio, occupation: occupation, codingLanguage: codingLanguage)
                 
                 DatabaseManager.shared.insertUser(with: chatUser, completion: { success in
                     if success {
@@ -253,7 +301,7 @@ final class RegisterViewController: UIViewController {
     
     
     func alertUserLoginError(message: String = "Enter all information to create a new account") {
-        let alert = UIAlertController(title: "Massive skill issue", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Unable to create account", message: message, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         

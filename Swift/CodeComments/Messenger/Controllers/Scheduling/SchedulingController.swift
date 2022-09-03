@@ -10,7 +10,7 @@ import Combine
 import UIKit
 import EventKitUI
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DisplaysCalendars {
+class SchedulingController: UIViewController, UITableViewDataSource, UITableViewDelegate, DisplaysCalendars {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var footerLabel: UILabel!
@@ -160,10 +160,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         present(nvc, animated: true, completion: nil)
     }
     
-    @IBAction func githubButtonTapped(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "https://github.com/nemecek-filip")!, options: [:], completionHandler: nil)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMap", let event = sender as? EKEvent {
             let nvc = segue.destination as! UINavigationController
@@ -284,7 +280,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 // MARK: EKEventEditViewDelegate
 
-extension ViewController: EKEventEditViewDelegate {
+extension SchedulingController: EKEventEditViewDelegate {
     func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
         dismiss(animated: true, completion: nil)
         
@@ -298,7 +294,7 @@ extension ViewController: EKEventEditViewDelegate {
 
 // MARK: EKCalendarChooserDelegate
 
-extension ViewController: EKCalendarChooserDelegate {
+extension SchedulingController: EKCalendarChooserDelegate {
     func calendarChooserDidFinish(_ calendarChooser: EKCalendarChooser) {
         dismiss(animated: true, completion: nil)
         

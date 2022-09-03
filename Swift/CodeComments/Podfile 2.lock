@@ -1,0 +1,294 @@
+PODS:
+  - AgoraRtcEngine_iOS (3.7.0.3):
+    - AgoraRtcEngine_iOS/AINS (= 3.7.0.3)
+    - AgoraRtcEngine_iOS/AV1Dec (= 3.7.0.3)
+    - AgoraRtcEngine_iOS/ContentInspect (= 3.7.0.3)
+    - AgoraRtcEngine_iOS/FullAudioFormat (= 3.7.0.3)
+    - AgoraRtcEngine_iOS/ReplayKit (= 3.7.0.3)
+    - AgoraRtcEngine_iOS/ROIEnc (= 3.7.0.3)
+    - AgoraRtcEngine_iOS/RtcBasic (= 3.7.0.3)
+    - AgoraRtcEngine_iOS/SpatialAudio (= 3.7.0.3)
+    - AgoraRtcEngine_iOS/SuperResolution (= 3.7.0.3)
+    - AgoraRtcEngine_iOS/VideoPreprocess (= 3.7.0.3)
+    - AgoraRtcEngine_iOS/VirtualBackground (= 3.7.0.3)
+  - AgoraRtcEngine_iOS/AINS (3.7.0.3)
+  - AgoraRtcEngine_iOS/AV1Dec (3.7.0.3)
+  - AgoraRtcEngine_iOS/ContentInspect (3.7.0.3)
+  - AgoraRtcEngine_iOS/FullAudioFormat (3.7.0.3)
+  - AgoraRtcEngine_iOS/ReplayKit (3.7.0.3)
+  - AgoraRtcEngine_iOS/ROIEnc (3.7.0.3)
+  - AgoraRtcEngine_iOS/RtcBasic (3.7.0.3)
+  - AgoraRtcEngine_iOS/SpatialAudio (3.7.0.3)
+  - AgoraRtcEngine_iOS/SuperResolution (3.7.0.3)
+  - AgoraRtcEngine_iOS/VideoPreprocess (3.7.0.3)
+  - AgoraRtcEngine_iOS/VirtualBackground (3.7.0.3)
+  - AgoraRtm_iOS (1.4.10)
+  - AgoraRtmControl_iOS (1.8.4):
+    - AgoraRtm_iOS (~> 1.4.10)
+  - AgoraUIKit_iOS (1.8.4):
+    - AgoraRtcEngine_iOS/RtcBasic (~> 3.7.0)
+    - AgoraUIKit_iOS/UIKitFull (= 1.8.4)
+  - AgoraUIKit_iOS/UIKitFull (1.8.4):
+    - AgoraRtcEngine_iOS/RtcBasic (~> 3.7.0)
+    - AgoraRtmControl_iOS (= 1.8.4)
+  - AppAuth (1.5.0):
+    - AppAuth/Core (= 1.5.0)
+    - AppAuth/ExternalUserAgent (= 1.5.0)
+  - AppAuth/Core (1.5.0)
+  - AppAuth/ExternalUserAgent (1.5.0):
+    - AppAuth/Core
+  - FBAEMKit (14.1.0):
+    - FBSDKCoreKit_Basics (= 14.1.0)
+  - FBSDKCoreKit (14.1.0):
+    - FBAEMKit (= 14.1.0)
+    - FBSDKCoreKit_Basics (= 14.1.0)
+  - FBSDKCoreKit_Basics (14.1.0)
+  - FBSDKLoginKit (14.1.0):
+    - FBSDKCoreKit (= 14.1.0)
+  - Firebase/Analytics (9.3.0):
+    - Firebase/Core
+  - Firebase/Auth (9.3.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 9.3.0)
+  - Firebase/Core (9.3.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (~> 9.3.0)
+  - Firebase/CoreOnly (9.3.0):
+    - FirebaseCore (= 9.3.0)
+  - Firebase/Crashlytics (9.3.0):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 9.3.0)
+  - Firebase/Database (9.3.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 9.3.0)
+  - Firebase/Storage (9.3.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 9.3.0)
+  - FirebaseAnalytics (9.3.0):
+    - FirebaseAnalytics/AdIdSupport (= 9.3.0)
+    - FirebaseCore (~> 9.0)
+    - FirebaseInstallations (~> 9.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseAnalytics/AdIdSupport (9.3.0):
+    - FirebaseCore (~> 9.0)
+    - FirebaseInstallations (~> 9.0)
+    - GoogleAppMeasurement (= 9.3.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseAppCheckInterop (9.3.0)
+  - FirebaseAuth (9.3.0):
+    - FirebaseCore (~> 9.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GTMSessionFetcher/Core (< 3.0, >= 1.7)
+  - FirebaseAuthInterop (9.3.0)
+  - FirebaseCore (9.3.0):
+    - FirebaseCoreDiagnostics (~> 9.0)
+    - FirebaseCoreInternal (~> 9.0)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/Logger (~> 7.7)
+  - FirebaseCoreDiagnostics (9.3.0):
+    - GoogleDataTransport (< 10.0.0, >= 9.1.4)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/Logger (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseCoreExtension (9.3.0):
+    - FirebaseCore (~> 9.0)
+  - FirebaseCoreInternal (9.3.0):
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+  - FirebaseCrashlytics (9.3.0):
+    - FirebaseCore (~> 9.0)
+    - FirebaseInstallations (~> 9.0)
+    - GoogleDataTransport (< 10.0.0, >= 9.1.4)
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesObjC (~> 2.1)
+  - FirebaseDatabase (9.3.0):
+    - FirebaseCore (~> 9.0)
+    - leveldb-library (~> 1.22)
+  - FirebaseInstallations (9.3.0):
+    - FirebaseCore (~> 9.0)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/UserDefaults (~> 7.7)
+    - PromisesObjC (~> 2.1)
+  - FirebaseStorage (9.3.0):
+    - FirebaseAppCheckInterop (~> 9.0)
+    - FirebaseAuthInterop (~> 9.0)
+    - FirebaseCore (~> 9.0)
+    - FirebaseCoreExtension (~> 9.0)
+    - FirebaseStorageInternal (~> 9.0)
+  - FirebaseStorageInternal (9.3.0):
+    - FirebaseCore (~> 9.0)
+    - GTMSessionFetcher/Core (< 3.0, >= 1.7)
+  - GoogleAppMeasurement (9.3.0):
+    - GoogleAppMeasurement/AdIdSupport (= 9.3.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - GoogleAppMeasurement/AdIdSupport (9.3.0):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 9.3.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - GoogleAppMeasurement/WithoutAdIdSupport (9.3.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - GoogleDataTransport (9.2.0):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleSignIn (5.0.2):
+    - AppAuth (~> 1.2)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleUtilities/AppDelegateSwizzler (7.7.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (7.7.0):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.7.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (7.7.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (7.7.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (7.7.0)"
+  - GoogleUtilities/Reachability (7.7.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (7.7.0):
+    - GoogleUtilities/Logger
+  - GTMAppAuth (1.3.0):
+    - AppAuth/Core (~> 1.4)
+    - GTMSessionFetcher/Core (~> 1.5)
+  - GTMSessionFetcher/Core (1.7.2)
+  - InputBarAccessoryView (5.5.0):
+    - InputBarAccessoryView/Core (= 5.5.0)
+  - InputBarAccessoryView/Core (5.5.0)
+  - JGProgressHUD (2.2)
+  - leveldb-library (1.22.1)
+  - MessageKit (3.8.0):
+    - InputBarAccessoryView (~> 5.5.0)
+  - nanopb (2.30909.0):
+    - nanopb/decode (= 2.30909.0)
+    - nanopb/encode (= 2.30909.0)
+  - nanopb/decode (2.30909.0)
+  - nanopb/encode (2.30909.0)
+  - PromisesObjC (2.1.1)
+  - SDWebImage (5.13.2):
+    - SDWebImage/Core (= 5.13.2)
+  - SDWebImage/Core (5.13.2)
+
+DEPENDENCIES:
+  - AgoraRtcEngine_iOS
+  - AgoraRtmControl_iOS
+  - AgoraUIKit_iOS
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - Firebase/Analytics
+  - Firebase/Auth
+  - Firebase/Core
+  - Firebase/Crashlytics
+  - Firebase/Database
+  - Firebase/Storage
+  - GoogleSignIn (= 5.0.2)
+  - JGProgressHUD
+  - MessageKit
+  - SDWebImage
+
+SPEC REPOS:
+  trunk:
+    - AgoraRtcEngine_iOS
+    - AgoraRtm_iOS
+    - AgoraRtmControl_iOS
+    - AgoraUIKit_iOS
+    - AppAuth
+    - FBAEMKit
+    - FBSDKCoreKit
+    - FBSDKCoreKit_Basics
+    - FBSDKLoginKit
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseAppCheckInterop
+    - FirebaseAuth
+    - FirebaseAuthInterop
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseCoreExtension
+    - FirebaseCoreInternal
+    - FirebaseCrashlytics
+    - FirebaseDatabase
+    - FirebaseInstallations
+    - FirebaseStorage
+    - FirebaseStorageInternal
+    - GoogleAppMeasurement
+    - GoogleDataTransport
+    - GoogleSignIn
+    - GoogleUtilities
+    - GTMAppAuth
+    - GTMSessionFetcher
+    - InputBarAccessoryView
+    - JGProgressHUD
+    - leveldb-library
+    - MessageKit
+    - nanopb
+    - PromisesObjC
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  AgoraRtcEngine_iOS: 549bb3853d5afb18fabca4197786f39f31141da8
+  AgoraRtm_iOS: 95e7070466f42a6494435a7f39fd2b13fc143cbf
+  AgoraRtmControl_iOS: cccc0f33c19b1afb9278c28b4765bf367d87ce9e
+  AgoraUIKit_iOS: 4c52ac91cf52c9d3b508c84563d3c427135647d2
+  AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
+  FBAEMKit: a899515e45476027f73aef377b5cffadcd56ca3a
+  FBSDKCoreKit: 24f8bc8d3b5b2a8c5c656a1329492a12e8efa792
+  FBSDKCoreKit_Basics: 6e578c9bdc7aa1365dbbbde633c9ebb536bcaa98
+  FBSDKLoginKit: 787de205d524c3a4b17d527916f1d066e4361660
+  Firebase: ef75abb1cdbc746d5a38f4e26c422c807b189b8c
+  FirebaseAnalytics: bf46f5163f44097ce2c789de0b3e6f87f1da834a
+  FirebaseAppCheckInterop: f6b9670fb1360cf12006ca426e9c3b9a35317d17
+  FirebaseAuth: 9ebc3577fe0acf9092df21ac314024b70aebf21e
+  FirebaseAuthInterop: 79826b4edc64e1d10135947866ad4437657e8696
+  FirebaseCore: c088995ece701a021a48a1348ea0174877de2a6a
+  FirebaseCoreDiagnostics: 060eb57cc56dfaf40b1b1b5874a5c17c41ce79f8
+  FirebaseCoreExtension: 900b065a4970c31ce8de4e966cee910188e3a07b
+  FirebaseCoreInternal: 635d1c9a612a6502b6377a0c92af83758076ffff
+  FirebaseCrashlytics: 65a5b349e664e986e6c7486b0a9b5ed8c11d0491
+  FirebaseDatabase: 92350185966ddd283842aa9ca07e188691f3b8ad
+  FirebaseInstallations: 54b40022cb06e462740c9f2b9fbe38b5e78a825a
+  FirebaseStorage: 1414d27e15fa04f6350ef6602accef0e951c8bca
+  FirebaseStorageInternal: f1a6d64cace780580d2b8ffa0a0c8cf3c376f3f8
+  GoogleAppMeasurement: b907bdad775b6975a8108762345b2cfbf1a93c37
+  GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
+  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
+  GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
+  GTMAppAuth: 4d8f864896f3646f0c33baf38a28362f4c601e15
+  GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
+  InputBarAccessoryView: 1d7b0a672b36e370f01f264b3907ef39d03328e3
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
+  leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  MessageKit: a1ba0c69ebead94029867853eb44dd05b9b3f453
+  nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
+  PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
+
+PODFILE CHECKSUM: 653245b45fc87ccafdbc5ec5c419cc43517bac9b
+
+COCOAPODS: 1.11.3

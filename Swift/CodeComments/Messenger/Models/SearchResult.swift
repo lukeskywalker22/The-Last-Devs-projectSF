@@ -11,4 +11,5 @@ struct SearchResult {
     let name: String
     let email: String
     let bio: String
+    let codingLanguage: String
 }
