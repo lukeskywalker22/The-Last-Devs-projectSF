@@ -50,6 +50,9 @@ class OtherUserViewController: UIViewController {
         view.addSubview(tableView)
         view.backgroundColor = .systemBackground
         tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "ProfileTableViewCell")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         data.append(ProfileViewModel(viewModelType: .info, title: "Name: \(otherUserName)", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "About: \((otherUserBio))", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "Occupation: \(pfpOccupation)", handler: nil))

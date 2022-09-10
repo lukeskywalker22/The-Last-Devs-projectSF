@@ -2,16 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSContactsUsageDescription</key>
-	<string>Please allow access to your contacts to allow scheduling to work</string>
-	<key>NSCalendarsUsageDescription</key>
-	<string>Please allow access to your calendar to allow scheduling to work</string>
-	<key>NSRemindersUsageDescription</key>
-	<string>Please allow access to your reminders to allow scheduling to work</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Please allow access to the camera to allow the call and image sending functions to work</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Please allow access to the microphone to allow the call function to work</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -59,7 +49,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleDefault</string>
 </dict>
 </plist>

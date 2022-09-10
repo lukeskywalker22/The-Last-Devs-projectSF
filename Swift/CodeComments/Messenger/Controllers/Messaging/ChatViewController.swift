@@ -92,9 +92,6 @@ class ChatViewController: MessagesViewController {
             self.otherUserBio = value!["bio"] as? String
             self.otherUserOccupation = value!["occupation"] as? String
             self.codingLanguage = value!["codingLanguage"] as? String
-            print(self.otherUserBio!)
-            print(self.otherUserOccupation!)
-            
             // ...
         }) { error in
             print(error.localizedDescription)
