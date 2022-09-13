@@ -8,7 +8,7 @@
 import UIKit
 import JGProgressHUD
 
-final class NewConversationViewController: UIViewController {
+class DiscoverTableViewController: UIViewController {
     
     public var completion: ((SearchResult) -> (Void))?
     
@@ -54,7 +54,6 @@ final class NewConversationViewController: UIViewController {
         searchBar.delegate = self
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.topItem?.titleView = searchBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(dismissSelf))
         searchBar.becomeFirstResponder()
     }
     
@@ -64,13 +63,9 @@ final class NewConversationViewController: UIViewController {
         noResultsLabel.frame = CGRect(x: view.width/4, y: (view.height-200)/2, width: view.width/2, height: 200)
     }
     
-    @objc private func dismissSelf() {
-        dismiss(animated: true, completion: nil)
-    }
-    
 }
 
-extension NewConversationViewController: UITableViewDelegate, UITableViewDataSource {
+extension DiscoverTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
@@ -86,10 +81,6 @@ extension NewConversationViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let targetUserData = results[indexPath.row]
-        
-        dismiss(animated: true, completion: { [weak self] in
-            self?.completion?(targetUserData)
-        })
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -97,7 +88,7 @@ extension NewConversationViewController: UITableViewDelegate, UITableViewDataSou
     }
 }
 
-extension NewConversationViewController: UISearchBarDelegate {
+extension DiscoverTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, !text.replacingOccurrences(of: " ", with: "").isEmpty else {
@@ -109,6 +100,7 @@ extension NewConversationViewController: UISearchBarDelegate {
         results.removeAll()
         spinner.show(in: view)
         
+        searchUsersByLanguage(query: text)
         searchUsers(query: text)
     }
     
@@ -137,7 +129,7 @@ extension NewConversationViewController: UISearchBarDelegate {
         
         if hasFetched {
             //if it does filter
-            filterUsers2(with: query)
+            filterUsersByLanguage(with: query)
         }
         else {
             //if not fetch then filter
@@ -187,7 +179,7 @@ extension NewConversationViewController: UISearchBarDelegate {
         updateUI()
     }
     
-    func filterUsers2(with term: String) {
+    func filterUsersByLanguage(with term: String) {
         guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") as? String, hasFetched else {
             return
         }
@@ -217,6 +209,7 @@ extension NewConversationViewController: UISearchBarDelegate {
         })
         
         self.results = results
+        print(self.results)
         
         updateUI()
     }
@@ -233,3 +226,4 @@ extension NewConversationViewController: UISearchBarDelegate {
         }
     }
 }
+

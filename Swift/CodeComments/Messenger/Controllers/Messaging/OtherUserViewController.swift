@@ -57,6 +57,7 @@ class OtherUserViewController: UIViewController {
         data.append(ProfileViewModel(viewModelType: .info, title: "About: \((otherUserBio))", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "Occupation: \(pfpOccupation)", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "Coding Language: \(otherUserCodingLanguage)", handler: nil))
+        data.append(ProfileViewModel(viewModelType: .button, title: "Rate this teacher", handler: nil))
         
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: "cell")

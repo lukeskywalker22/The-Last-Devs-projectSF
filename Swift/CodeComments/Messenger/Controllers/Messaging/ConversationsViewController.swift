@@ -15,21 +15,19 @@ class ConversationsViewController: UIViewController {
     
     var conversations = [Conversation]()
     
-    /*private let tableView: UITableView = {
+    private let tableView: UITableView = {
         let table = UITableView()
         table.isHidden = true
         table.register(ConversationTableViewCell.self,
                        forCellReuseIdentifier: ConversationTableViewCell.identifier)
         return table
-    }()*/
-    
-    @IBOutlet weak var tableView: UITableView!
+    }()
     
     //private let chatSearchBar: UISearchBar = {
-        //let searchBar = UISearchBar()
-        //searchBar.isHidden = false
-        //searchBar.placeholder = "Search for conversations"
-        //return searchBar
+    //let searchBar = UISearchBar()
+    //searchBar.isHidden = false
+    //searchBar.placeholder = "Search for conversations"
+    //return searchBar
     //}()
     
     private let noConversationsLabel: UILabel = {
@@ -46,9 +44,7 @@ class ConversationsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.isHidden = true
         tableView.layer.cornerRadius = 15
-        tableView.register(ConversationTableViewCell.self, forCellReuseIdentifier: ConversationTableViewCell.identifier)
         let composeButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(didTapComposeButton))
         navigationItem.rightBarButtonItems = [composeButton]
         view.addSubview(tableView)

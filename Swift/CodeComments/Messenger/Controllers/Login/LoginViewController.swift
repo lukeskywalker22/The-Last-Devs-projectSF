@@ -199,10 +199,17 @@ final class LoginViewController: UIViewController {
                 case .success(let data):
                     guard let userData = data as? [String: Any],
                           let firstName = userData["first_name"] as? String,
-                          let lastName = userData["last_name"] as? String else {
+                          let lastName = userData["last_name"] as? String,
+                          let bio = userData["bio"] as? String,
+                          let occupation = userData["occupation"] as? String,
+                          let codingLanguage = userData["codingLanguage"] as? String
+                    else {
                         return
                     }
                     UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
+                    UserDefaults.standard.set(bio, forKey: "bio")
+                    UserDefaults.standard.set(occupation, forKey: "occupation")
+                    UserDefaults.standard.set(codingLanguage, forKey: "codingLanguage")
                     
                 case .failure(let error):
                     print("failed to get data with error: \(error)")

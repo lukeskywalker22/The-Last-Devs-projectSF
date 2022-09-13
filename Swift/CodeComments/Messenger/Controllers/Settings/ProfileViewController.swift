@@ -27,10 +27,6 @@ final class ProfileViewController: UIViewController {
         data.append(ProfileViewModel(viewModelType: .info, title: "Bio: \(UserDefaults.standard.value(forKey: "bio") as? String ?? "No Bio")", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "Occupation: \(UserDefaults.standard.value(forKey: "occupation") ?? "No occupation")", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "Coding Language: \(UserDefaults.standard.value(forKey: "codingLanguage") ?? "No coding language")", handler: nil))
-        data.append(ProfileViewModel(viewModelType: .button, title: "Help and support", handler: { 
-            let vc = UserGuideViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
-        }))
         data.append(ProfileViewModel(viewModelType: .logout, title: "Log Out", handler: { [weak self] in
             
             guard let strongSelf = self else {

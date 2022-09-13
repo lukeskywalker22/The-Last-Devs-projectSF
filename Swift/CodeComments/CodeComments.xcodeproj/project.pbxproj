@@ -39,6 +39,7 @@
 		A8DB5766287477CA00C8AA05 /* ChatModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB5765287477CA00C8AA05 /* ChatModels.swift */; };
 		A8DB57682874782800C8AA05 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB57672874782800C8AA05 /* SearchResult.swift */; };
 		A8DB576A2874786E00C8AA05 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB57692874786E00C8AA05 /* ProfileViewModel.swift */; };
+		A8ED9D4728CF2EE80012F5F9 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ED9D4628CF2EE80012F5F9 /* DiscoverTableViewController.swift */; };
 		A8EF2463284E208300640C0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8EF2462284E208300640C0C /* GoogleService-Info.plist */; };
 		A8EF2465284E2B7B00640C0C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EF2464284E2B7B00640C0C /* ChatViewController.swift */; };
 		A8F8D313287C03AE001DED9B /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8D312287C03AE001DED9B /* CallViewController.swift */; };
@@ -97,6 +98,7 @@
 		A8DB5765287477CA00C8AA05 /* ChatModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModels.swift; sourceTree = "<group>"; };
 		A8DB57672874782800C8AA05 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		A8DB57692874786E00C8AA05 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		A8ED9D4628CF2EE80012F5F9 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		A8EF2462284E208300640C0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A8EF2464284E2B7B00640C0C /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A8F8D312287C03AE001DED9B /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,23 @@
 				2E7C4CA51DBE8FC907E42489 /* Pods-Messenger.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A8047FB428D0AE660039CC82 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A85A382728609C99004CA794 /* ConversationTableViewCell.swift */,
+				A89A5EA4286532DB00B9E00E /* NewConversationCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A826AF9A28D07CAE004BC1EE /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				A8ED9D4628CF2EE80012F5F9 /* DiscoverTableViewController.swift */,
+			);
+			path = Discover;
 			sourceTree = "<group>";
 		};
 		A8306E1F28B38A1E00126BC9 /* Extras */ = {
@@ -254,6 +273,7 @@
 		A8B72D32282245FD00007F79 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A826AF9A28D07CAE004BC1EE /* Discover */,
 				A881EB05282249C7008F9FFA /* Login */,
 				A8A389C628B9FFA6000AA299 /* Messaging */,
 				A8A389C728B9FFBE000AA299 /* Media */,
@@ -269,8 +289,7 @@
 			children = (
 				A881EAF8282246BE008F9FFA /* Storyboards */,
 				A8B72D272822448400007F79 /* Assets.xcassets */,
-				A85A382728609C99004CA794 /* ConversationTableViewCell.swift */,
-				A89A5EA4286532DB00B9E00E /* NewConversationCell.swift */,
+				A8047FB428D0AE660039CC82 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -461,6 +480,7 @@
 				A89A5EA5286532DB00B9E00E /* NewConversationCell.swift in Sources */,
 				A8DB576A2874786E00C8AA05 /* ProfileViewModel.swift in Sources */,
 				A8F8D313287C03AE001DED9B /* CallViewController.swift in Sources */,
+				A8ED9D4728CF2EE80012F5F9 /* DiscoverTableViewController.swift in Sources */,
 				A8DA68B428421ABC0084A297 /* DatabaseManager.swift in Sources */,
 				A881EAFC28224811008F9FFA /* RegisterViewController.swift in Sources */,
 				A8306E2D28B38A4400126BC9 /* SchedulingController.swift in Sources */,

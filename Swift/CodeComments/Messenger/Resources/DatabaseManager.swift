@@ -1,10 +1,3 @@
-//
-//  DatabaseManager.swift
-//  Messenger
-//
-//  Created by Afraz Siddiqui on 6/7/20.
-//  Copyright © 2020 ASN GROUP LLC. All rights reserved.
-//
 
 import Foundation
 import FirebaseDatabase
