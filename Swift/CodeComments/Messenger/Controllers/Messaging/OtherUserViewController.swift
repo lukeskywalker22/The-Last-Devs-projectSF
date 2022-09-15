@@ -50,6 +50,7 @@ class OtherUserViewController: UIViewController {
         view.addSubview(tableView)
         view.backgroundColor = .systemBackground
         tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "ProfileTableViewCell")
+        getUserBio()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,13 +59,9 @@ class OtherUserViewController: UIViewController {
         data.append(ProfileViewModel(viewModelType: .info, title: "Occupation: \(pfpOccupation)", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "Coding Language: \(otherUserCodingLanguage)", handler: nil))
         data.append(ProfileViewModel(viewModelType: .button, title: "Rate this teacher", handler: nil))
-        
-        tableView.register(UITableViewCell.self,
-                           forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableHeaderView = createTableHeader()
-        getUserBio()
         tableView.reloadData()
     }
     
@@ -73,6 +70,8 @@ class OtherUserViewController: UIViewController {
             // Get user value
             let value = snapshot.value as? NSDictionary
             self.otherUserBio = value?["bio"] as? String ?? "nil"
+            self.otherUserCodingLanguage = value?["codingLanguage"] as? String ?? "nil"
+            self.pfpOccupation = value?["occupation"] as? String ?? "nil"
             print("yes but no: \(self.otherUserBio)")
             
             // ...

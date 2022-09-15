@@ -22,7 +22,7 @@ class DiscoverTableViewController: UIViewController {
     
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for users or existing conversations"
+        searchBar.placeholder = "Search for users by specialised coding language..."
         return searchBar
     }()
     
@@ -101,7 +101,6 @@ extension DiscoverTableViewController: UISearchBarDelegate {
         spinner.show(in: view)
         
         searchUsersByLanguage(query: text)
-        searchUsers(query: text)
     }
     
     func searchUsers(query: String) {
@@ -138,7 +137,7 @@ extension DiscoverTableViewController: UISearchBarDelegate {
                 case.success(let usersCollection):
                     self?.hasFetched = true
                     self?.users = usersCollection
-                    self?.filterUsers(with: query)
+                    self?.filterUsersByLanguage(with: query)
                 case .failure(let error):
                     print("failed to get users: \(error)")
                 }
@@ -199,7 +198,6 @@ extension DiscoverTableViewController: UISearchBarDelegate {
             }
             
             return codingLanguage.hasPrefix(term.lowercased())
-            
         }).compactMap({
             guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"], let codingLanguage = $0["codingLanguage"] else {
                 return nil

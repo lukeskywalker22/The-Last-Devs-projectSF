@@ -135,7 +135,6 @@ final class LoginViewController: UIViewController {
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
         scrollView.addSubview(loginButton)
-        scrollView.addSubview(googleLogInButton)
     }
     
     override func viewDidAppear(_ animated: Bool) {

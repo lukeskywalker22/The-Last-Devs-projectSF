@@ -95,7 +95,7 @@ final class RegisterViewController: UIViewController {
         let field = UITextField()
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
-        field.returnKeyType = .done
+        field.returnKeyType = .continue
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
@@ -110,7 +110,7 @@ final class RegisterViewController: UIViewController {
         let field = UITextField()
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
-        field.returnKeyType = .done
+        field.returnKeyType = .continue
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
@@ -119,12 +119,6 @@ final class RegisterViewController: UIViewController {
         field.leftViewMode = .always
         field.backgroundColor = .secondarySystemBackground
         return field
-    }()
-    
-    private let questionLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Are you signing up as a student or teacher?"
-        return label
     }()
     
     private let occupationField: UITextField = {
@@ -170,13 +164,13 @@ final class RegisterViewController: UIViewController {
         
         // Add subviews
         view.addSubview(scrollView)
+        
         scrollView.addSubview(imageView)
         scrollView.addSubview(firstNameField)
         scrollView.addSubview(lastNameField )
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
         scrollView.addSubview(bioField)
-        scrollView.addSubview(questionLabel)
         scrollView.addSubview(occupationField)
         scrollView.addSubview(languageField)
         scrollView.addSubview(registerButton)
@@ -198,18 +192,17 @@ final class RegisterViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         scrollView.frame = view.bounds
-        let size = scrollView.width/3
+        let size = scrollView.width/5
         imageView.frame = CGRect(x: (view.width-size)/2, y: 20, width: size, height: size)
         
         imageView.layer.cornerRadius = imageView.width/2.0
         
-        firstNameField.frame = CGRect(x: 30, y: imageView.bottom+10, width: scrollView.width-60, height: 52)
-        lastNameField.frame = CGRect(x: 30, y: firstNameField.bottom+10, width: scrollView.width-60, height: 52)
+        firstNameField.frame = CGRect(x: 30, y: imageView.bottom+10, width: ((scrollView.width-60)/2)-10, height: 52)
+        lastNameField.frame = CGRect(x: firstNameField.right+20, y: imageView.bottom+10, width: ((scrollView.width-60)/2)-10, height: 52)
         emailField.frame = CGRect(x: 30, y: lastNameField.bottom+10, width: scrollView.width-60, height: 52)
         passwordField.frame = CGRect(x: 30, y: emailField.bottom+10, width: scrollView.width-60, height: 52)
-        bioField.frame = CGRect(x: 30, y: passwordField.bottom+10, width: scrollView.width-60, height: 104)
-        questionLabel.frame = CGRect(x: 30, y: bioField.bottom+10, width: scrollView.width-60, height: 40)
-        occupationField.frame = CGRect(x: 30, y: questionLabel.bottom+10, width: scrollView.width-60, height: 52)
+        bioField.frame = CGRect(x: 30, y: passwordField.bottom+10, width: scrollView.width-60, height: 52)
+        occupationField.frame = CGRect(x: 30, y: bioField.bottom+10, width: scrollView.width-60, height: 52)
         languageField.frame = CGRect(x: 30, y: occupationField.bottom+10, width: scrollView.width-60, height: 52)
         registerButton.frame = CGRect(x: 30, y: languageField.bottom+10, width: scrollView.width-60, height: 52)
     }
