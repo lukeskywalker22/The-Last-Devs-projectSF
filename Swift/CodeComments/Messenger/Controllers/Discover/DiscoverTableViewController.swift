@@ -54,6 +54,7 @@ class DiscoverTableViewController: UIViewController {
         searchBar.delegate = self
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.topItem?.titleView = searchBar
+        
         searchBar.becomeFirstResponder()
     }
     
@@ -81,6 +82,14 @@ extension DiscoverTableViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let targetUserData = results[indexPath.row]
+        
+        print("conversation_\((UserDefaults.standard.value(forKey: "email"))!)_\( DatabaseManager.safeEmail(emailAddress: targetUserData.email))_\(ChatViewController.dateFormatter.string(from: Date()))")
+        
+        let vc = ChatViewController(with: DatabaseManager.safeEmail(emailAddress: targetUserData.email), id: "conversation_\(DatabaseManager.safeEmail(emailAddress: UserDefaults.standard.value(forKey: "email")! as! String))_\( DatabaseManager.safeEmail(emailAddress: targetUserData.email))_\(ChatViewController.dateFormatter.string(from: Date()))")
+        
+        vc.title = results[indexPath.row].name
+        vc.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

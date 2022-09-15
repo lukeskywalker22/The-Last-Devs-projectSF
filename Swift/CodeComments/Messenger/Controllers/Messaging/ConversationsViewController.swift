@@ -13,7 +13,7 @@ class ConversationsViewController: UIViewController {
     
     private let spinner = JGProgressHUD(style: .dark)
     
-    var conversations = [Conversation]()
+    public var conversations = [Conversation]()
     
     private let tableView: UITableView = {
         let table = UITableView()
