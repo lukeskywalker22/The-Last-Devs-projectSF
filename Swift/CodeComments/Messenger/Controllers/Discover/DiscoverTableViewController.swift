@@ -85,7 +85,7 @@ extension DiscoverTableViewController: UITableViewDelegate, UITableViewDataSourc
         
         print("conversation_\((UserDefaults.standard.value(forKey: "email"))!)_\( DatabaseManager.safeEmail(emailAddress: targetUserData.email))_\(ChatViewController.dateFormatter.string(from: Date()))")
         
-        let vc = ChatViewController(with: DatabaseManager.safeEmail(emailAddress: targetUserData.email), id: "conversation_\(DatabaseManager.safeEmail(emailAddress: UserDefaults.standard.value(forKey: "email")! as! String))_\( DatabaseManager.safeEmail(emailAddress: targetUserData.email))_\(ChatViewController.dateFormatter.string(from: Date()))")
+        let vc = ChatViewController(with: DatabaseManager.safeEmail(emailAddress: targetUserData.email), id: "conversation_\(targetUserData.email)_\(DatabaseManager.safeEmail(emailAddress: (UserDefaults.standard.value(forKey: "email")! as? String)!))_\(ChatViewController.dateFormatter.string(from: Date()))")
         
         vc.title = results[indexPath.row].name
         vc.navigationItem.largeTitleDisplayMode = .never
