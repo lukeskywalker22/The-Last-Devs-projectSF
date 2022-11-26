@@ -10,23 +10,57 @@ import FirebaseAuth
 import FBSDKLoginKit
 import GoogleSignIn
 import SDWebImage
+import FirebaseCore
+import FirebaseDatabase
 
 final class ProfileViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     var data = [ProfileViewModel]()
+    var db: DatabaseReference! = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        data = [ProfileViewModel]()
         tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "ProfileTableViewCell")
         
         data.append(ProfileViewModel(viewModelType: .info, title: "Name: \(UserDefaults.standard.value(forKey: "name") as? String ?? "No name")", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "Email: \(UserDefaults.standard.value(forKey: "email") as? String ?? "No email")", handler: nil))
-        data.append(ProfileViewModel(viewModelType: .info, title: "Bio: \(UserDefaults.standard.value(forKey: "bio") as? String ?? "No Bio")", handler: nil))
+        data.append(ProfileViewModel(viewModelType: .userData, title: "Bio: \(UserDefaults.standard.value(forKey: "bio") as? String ?? "No Bio")", handler: {
+            
+            let editAlert = UIAlertController(title: "Edit user data", message: "Enter new bio", preferredStyle: .alert)
+            editAlert.addTextField()
+            let cancel = UIAlertAction(title: "Cancel", style: .destructive)
+            let confirm = UIAlertAction(title: "Confirm", style: .default, handler: { _ in
+                let newBio = editAlert.textFields?[0]
+                print(newBio?.text ?? "")
+                self.db.child("\(DatabaseManager.safeEmail(emailAddress: UserDefaults.standard.value(forKey: "email") as! String))").updateChildValues(["bio": newBio?.text ?? ""])
+                UserDefaults.standard.set(newBio?.text ?? "", forKey: "bio")
+                self.viewDidLoad()
+                self.reloadBioCell(index: 2)
+            })
+            editAlert.addAction(cancel)
+            editAlert.addAction(confirm)
+            self.present(editAlert, animated: true)
+        }))
         data.append(ProfileViewModel(viewModelType: .info, title: "Occupation: \(UserDefaults.standard.value(forKey: "occupation") ?? "No occupation")", handler: nil))
-        data.append(ProfileViewModel(viewModelType: .info, title: "Coding Language: \(UserDefaults.standard.value(forKey: "codingLanguage") ?? "No coding language")", handler: nil))
+        data.append(ProfileViewModel(viewModelType: .userData, title: "Coding Language: \(UserDefaults.standard.value(forKey: "codingLanguage") ?? "No coding language")", handler: {
+            let editAlert = UIAlertController(title: "Edit user data", message: "Enter new coding language", preferredStyle: .alert)
+            editAlert.addTextField()
+            let cancel = UIAlertAction(title: "Cancel", style: .destructive)
+            let confirm = UIAlertAction(title: "Confirm", style: .default, handler: { _ in
+                let newCodingLanguage = editAlert.textFields?[0]
+                print(newCodingLanguage?.text ?? "")
+                self.db.child("\(DatabaseManager.safeEmail(emailAddress: UserDefaults.standard.value(forKey: "email") as! String))").updateChildValues(["codingLanguage": newCodingLanguage?.text ?? ""])
+                UserDefaults.standard.set(newCodingLanguage?.text ?? "", forKey: "codingLanguage")
+                self.viewDidLoad()
+                self.reloadCodingLangCell(index: 4)
+            })
+            editAlert.addAction(cancel)
+            editAlert.addAction(confirm)
+            self.present(editAlert, animated: true)
+        }))
         data.append(ProfileViewModel(viewModelType: .logout, title: "Log Out", handler: { [weak self] in
             
             guard let strongSelf = self else {
@@ -64,15 +98,94 @@ final class ProfileViewController: UIViewController {
             
             strongSelf.present(actionSheet, animated: true)
         }))
+        data.append(ProfileViewModel(viewModelType: .button, title: "Change password", handler: {
+            let user = Auth.auth().currentUser
+            
+            let authAlert = UIAlertController(title: "Authentication", message: "Re-enter account password", preferredStyle: .alert)
+            authAlert.addTextField{(textField:UITextField) in
+                textField.placeholder = "Current Password"
+            }
+            authAlert.addTextField{(textField:UITextField) in
+                textField.placeholder = "New Password"
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .destructive)
+            let confirm = UIAlertAction(title: "Confirm", style: .default, handler: { _ in
+                var credential = EmailAuthProvider.credential(withEmail: UserDefaults.standard.value(forKey: "email") as! String, password: (authAlert.textFields?[0].text)!)
+                var newPassword = authAlert.textFields?[1].text
+                /*user?.reauthenticate(with: credential) { error, _  in
+                 if let error = error {
+                 print("error authenticating user")
+                 print("user: \(credential)")
+                 print(error)
+                 } else {
+                 print("authentication successful")
+                 }
+                 }*/
+                Auth.auth().currentUser?.updatePassword(to: newPassword!) { (error) in
+                    print(error)
+                }
+                
+                let successAlert = UIAlertController(title: "Success", message: "Password successfully changed", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .destructive)
+                successAlert.addAction(ok)
+                self.present(successAlert, animated: true
+                )
+            })
+            authAlert.addAction(cancel)
+            authAlert.addAction(confirm)
+            self.present(authAlert, animated: true)
+        }))
         
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableHeaderView = createTableHeader()
-        
     }
     
+    func reloadBioCell(index: Int) {
+        print("reloading cell...")
+        data.remove(at: index)
+        data.insert(ProfileViewModel(viewModelType: .userData, title: "Bio: \(UserDefaults.standard.value(forKey: "bio") as? String ?? "No Bio")", handler: {
+            
+            let editAlert = UIAlertController(title: "Edit user data", message: "Enter new bio", preferredStyle: .alert)
+            editAlert.addTextField()
+            let cancel = UIAlertAction(title: "Cancel", style: .destructive)
+            let confirm = UIAlertAction(title: "Confirm", style: .default, handler: { _ in
+                let newBio = editAlert.textFields?[0]
+                print(newBio?.text ?? "")
+                self.db.child("\(DatabaseManager.safeEmail(emailAddress: UserDefaults.standard.value(forKey: "email") as! String))").updateChildValues(["bio": newBio?.text ?? ""])
+                UserDefaults.standard.set(newBio?.text ?? "", forKey: "bio")
+                self.reloadBioCell(index: 2)
+            })
+            editAlert.addAction(cancel)
+            editAlert.addAction(confirm)
+            self.present(editAlert, animated: true)
+        }), at: index)
+        tableView.reloadData()
+    }
+    
+    func reloadCodingLangCell(index: Int) {
+        print("reloading cell...")
+        data.remove(at: index)
+        data.insert(ProfileViewModel(viewModelType: .userData, title: "Coding Language: \(UserDefaults.standard.value(forKey: "codingLanguage") ?? "No coding language")", handler: {
+            let editAlert = UIAlertController(title: "Edit user data", message: "Enter new coding language", preferredStyle: .alert)
+            editAlert.addTextField()
+            let cancel = UIAlertAction(title: "Cancel", style: .destructive)
+            let confirm = UIAlertAction(title: "Confirm", style: .default, handler: { _ in
+                let newCodingLanguage = editAlert.textFields?[0]
+                print(newCodingLanguage?.text ?? "")
+                self.db.child("\(DatabaseManager.safeEmail(emailAddress: UserDefaults.standard.value(forKey: "email") as! String))").updateChildValues(["codingLanguage": newCodingLanguage?.text ?? ""])
+                UserDefaults.standard.set(newCodingLanguage?.text ?? "", forKey: "codingLanguage")
+                self.viewDidLoad()
+                self.reloadCodingLangCell(index: 4)
+            })
+            editAlert.addAction(cancel)
+            editAlert.addAction(confirm)
+            self.present(editAlert, animated: true)
+        }), at: index)
+        tableView.reloadData()
+    }
     
     func createTableHeader() -> UIView? {
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
@@ -143,12 +256,20 @@ class ProfileTableViewCell: UITableViewCell {
         case .info:
             textLabel?.textAlignment = .left
             selectionStyle = .none
+            textLabel?.textColor = .white
+            accessoryType = .none
         case .logout:
             textLabel?.textColor = .red
             textLabel?.textAlignment = .center
+            accessoryType = .none
         case .button:
             textLabel?.textColor = .link
             textLabel?.textAlignment = .center
+            accessoryType = .none
+        case .userData:
+            textLabel?.textColor = .white
+            textLabel?.textAlignment = .left
+            accessoryType = .disclosureIndicator
         }
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 import JGProgressHUD
 
-final class NewConversationViewController: UIViewController {
+final class DiscoverViewController: UIViewController {
     
     public var completion: ((SearchResult) -> (Void))?
     
@@ -22,7 +22,7 @@ final class NewConversationViewController: UIViewController {
     
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for users by name"
+        searchBar.placeholder = "Search for users by coding language"
         return searchBar
     }()
     
@@ -70,7 +70,7 @@ final class NewConversationViewController: UIViewController {
     
 }
 
-extension NewConversationViewController: UITableViewDelegate, UITableViewDataSource {
+extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
@@ -97,7 +97,7 @@ extension NewConversationViewController: UITableViewDelegate, UITableViewDataSou
     }
 }
 
-extension NewConversationViewController: UISearchBarDelegate {
+extension DiscoverViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, !text.replacingOccurrences(of: " ", with: "").isEmpty else {
@@ -109,7 +109,7 @@ extension NewConversationViewController: UISearchBarDelegate {
         results.removeAll()
         spinner.show(in: view)
         
-        searchUsers(query: text)
+        searchUsersByLanguage(query: text)
     }
     
     func searchUsers(query: String) {
@@ -117,7 +117,7 @@ extension NewConversationViewController: UISearchBarDelegate {
         if hasFetched {
             //if it does filter
             filterUsers(with: query)
-        } 
+        }
         else {
             //if not fetch then filter
             DatabaseManager.shared.getAllUsers(completion: { [weak self] result in

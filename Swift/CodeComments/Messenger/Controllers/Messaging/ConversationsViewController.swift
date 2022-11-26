@@ -45,8 +45,7 @@ class ConversationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.layer.cornerRadius = 15
-        let composeButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(didTapComposeButton))
-        navigationItem.rightBarButtonItems = [composeButton]
+        //let composeButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(didTapComposeButton))
         view.addSubview(tableView)
         view.addSubview(noConversationsLabel)
         
@@ -106,8 +105,34 @@ class ConversationsViewController: UIViewController {
         tableView.reloadData()
     }
     
-    @objc func didTapComposeButton() {
+    @IBAction func didTapComposeButton() {
         let vc = NewConversationViewController()
+        vc.completion = { [weak self] result in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            let currentConversations = strongSelf.conversations
+            
+            if let targetConversation = currentConversations.first(where: {
+                $0.otherUserEmail == DatabaseManager.safeEmail(emailAddress: result.email)
+            }) {
+                let vc = ChatViewController(with: targetConversation.otherUserEmail, id: targetConversation.id)
+                vc.isNewConversation = false
+                vc.title = targetConversation.name
+                vc.navigationItem.largeTitleDisplayMode = .never
+                strongSelf.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                strongSelf.createNewConversation(result: result)
+            }
+            
+        }
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
+    }
+    
+    @IBAction func didTapComposeButton2() {
+        let vc = DiscoverViewController()
         vc.completion = { [weak self] result in
             guard let strongSelf = self else {
                 return

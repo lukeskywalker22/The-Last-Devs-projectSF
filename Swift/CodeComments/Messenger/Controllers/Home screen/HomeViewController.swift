@@ -17,8 +17,6 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var classesView: UITableView!
-    
     /*private let tableView: UITableView = {
         let table = UITableView()
         table.isHidden = true
