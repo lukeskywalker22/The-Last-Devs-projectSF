@@ -361,12 +361,11 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 }
             })
         } else {
-            
+            self.messageInputBar.inputTextView.text = ""
             guard let conversationId = conversationId, let name = title else {
                 return
             }
             
-            self.messageInputBar.inputTextView.text = ""
             DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: otherUserEmail, name: name, newMessage: message, completion: { success in
                 if success {
                     print("message sent")
