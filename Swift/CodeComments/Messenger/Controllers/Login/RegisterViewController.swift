@@ -202,8 +202,8 @@ final class RegisterViewController: UIViewController {
         emailField.frame = CGRect(x: 30, y: lastNameField.bottom+10, width: scrollView.width-60, height: 52)
         passwordField.frame = CGRect(x: 30, y: emailField.bottom+10, width: scrollView.width-60, height: 52)
         bioField.frame = CGRect(x: 30, y: passwordField.bottom+10, width: scrollView.width-60, height: 52)
-        occupationField.frame = CGRect(x: 30, y: bioField.bottom+10, width: scrollView.width-60, height: 52)
-        languageField.frame = CGRect(x: 30, y: occupationField.bottom+10, width: scrollView.width-60, height: 52)
+        occupationField.frame = CGRect(x: 30, y: bioField.bottom+10, width: ((scrollView.width-60)/2)-10, height: 52)
+        languageField.frame = CGRect(x: occupationField.right + 20, y: bioField.bottom+10, width: ((scrollView.width-60)/2)-10, height: 52)
         registerButton.frame = CGRect(x: 30, y: languageField.bottom+10, width: scrollView.width-60, height: 52)
     }
     
