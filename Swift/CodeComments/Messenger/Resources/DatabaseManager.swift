@@ -145,53 +145,13 @@ extension DatabaseManager {
             }
         }
     }
-    
-    /*
-     users => [
-     [
-     "name":
-     "safe_email":
-     ],
-     [
-     "name":
-     "safe_email":
-     ]
-     ]
-     */
 }
 
 // MARK: - Sending messages / conversations
 
 extension DatabaseManager {
     
-    /*
-     "dfsdfdsfds" {
-     "messages": [
-     {
-     "id": String,
-     "type": text, photo, video,
-     "content": String,
-     "date": Date(),
-     "sender_email": String,
-     "isRead": true/false,
-     }
-     ]
-     }
-     
-     conversaiton => [
-     [
-     "conversation_id": "dfsdfdsfds"
-     "other_user_email":
-     "latest_message": => {
-     "date": Date()
-     "latest_message": "message"
-     "is_read": true/false
-     }
-     ],
-     ]
-     */
-    
-    /// Creates a new conversation with target user emamil and first message sent
+    /// Creates a new conversation with target user email and first message sent
     public func createNewConversation(with otherUserEmail: String, name: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
         guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String,
               let currentNamme = UserDefaults.standard.value(forKey: "name") as? String else {
@@ -259,7 +219,7 @@ extension DatabaseManager {
                     "is_read": false
                 ]
             ]
-            // Update recipient conversaiton entry
+            // Update recipient conversation entry
             
             self?.database.child("\(otherUserEmail)/conversations").observeSingleEvent(of: .value, with: { [weak self] snapshot in
                 if var conversatoins = snapshot.value as? [[String: Any]] {
@@ -336,12 +296,12 @@ extension DatabaseManager {
             break
         }
         
-        guard let myEmmail = UserDefaults.standard.value(forKey: "email") as? String else {
+        guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
             completion(false)
             return
         }
         
-        let currentUserEmail = DatabaseManager.safeEmail(emailAddress: myEmmail)
+        let currentUserEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
         
         let collectionMessage: [String: Any] = [
             "id": firstMessage.messageId,
@@ -532,9 +492,7 @@ extension DatabaseManager {
                 break
             case .contact(_):
                 break
-            case .custom(_):
-                break
-            case .linkPreview(_):
+            case .custom(_), .linkPreview(_):
                 break
             }
             
