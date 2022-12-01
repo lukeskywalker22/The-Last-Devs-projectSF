@@ -283,8 +283,9 @@ final class RegisterViewController: UIViewController {
                         })
                     }
                 })
-                
-                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                Auth.auth().currentUser?.sendEmailVerification { error in
+                    strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                }
             })
             
         })

@@ -7,7 +7,6 @@
 
 import UIKit
 import FirebaseAuth
-import FBSDKLoginKit
 import GoogleSignIn
 import SDWebImage
 import FirebaseCore
@@ -54,11 +53,14 @@ class OtherUserViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        data.removeAll()
         data.append(ProfileViewModel(viewModelType: .info, title: "Name: \(otherUserName)", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "About: \((otherUserBio))", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "Occupation: \(pfpOccupation)", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "Coding Language: \(otherUserCodingLanguage)", handler: nil))
-        data.append(ProfileViewModel(viewModelType: .button, title: "Rate this teacher", handler: nil))
+        data.append(ProfileViewModel(viewModelType: .button, title: "Rate this teacher", handler: {
+            self.navigationController?.pushViewController(RatingViewController(), animated: true)
+        }))
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableHeaderView = createTableHeader()
