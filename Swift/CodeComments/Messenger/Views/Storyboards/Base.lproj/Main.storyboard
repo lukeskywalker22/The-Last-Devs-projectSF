@@ -85,6 +85,7 @@
                         <segue destination="2Qu-Kj-DR6" kind="relationship" relationship="viewControllers" id="B7o-xn-OMR"/>
                         <segue destination="Z8s-39-wmy" kind="relationship" relationship="viewControllers" id="lWK-Ax-u0O"/>
                         <segue destination="Siy-dB-gNp" kind="relationship" relationship="viewControllers" id="yI5-n2-cRw"/>
+                        <segue destination="PWf-vc-VC3" kind="relationship" relationship="viewControllers" id="iSj-mR-HKv"/>
                         <segue destination="8Un-M3-Yhx" kind="relationship" relationship="viewControllers" id="9Z2-XH-esO"/>
                     </connections>
                 </tabBarController>
@@ -144,6 +145,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a56-Ww-ME1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1761" y="82"/>
+        </scene>
+        <!--Courses-->
+        <scene sceneID="vH8-5K-hXb">
+            <objects>
+                <navigationController id="PWf-vc-VC3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Courses" image="book" catalog="system" selectedImage="book.fill" id="BTf-wp-5kp"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yNP-er-eQh">
+                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BPw-YT-fE8" kind="relationship" relationship="rootViewController" id="Zvw-Mr-wpu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z6A-8T-Pfg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2802" y="82"/>
+        </scene>
+        <!--Courses-->
+        <scene sceneID="bgN-n6-BCq">
+            <objects>
+                <viewController id="BPw-YT-fE8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uvJ-jw-M5d">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Coming soon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9u-OX-dtX">
+                                <rect key="frame" x="116" y="445" width="199" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KlX-DT-VVt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="F9u-OX-dtX" firstAttribute="centerX" secondItem="KlX-DT-VVt" secondAttribute="centerX" id="8NG-Gw-ODA"/>
+                            <constraint firstItem="F9u-OX-dtX" firstAttribute="centerY" secondItem="KlX-DT-VVt" secondAttribute="centerY" id="Bm8-5h-mAn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Courses" largeTitleDisplayMode="always" id="DA1-i0-3X3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f9a-tt-8cs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2802" y="774"/>
         </scene>
         <!--Home-->
         <scene sceneID="rkd-XC-Iqz">
@@ -478,6 +524,8 @@
         <segue reference="Foa-Px-zsa"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="book" catalog="system" width="128" height="99"/>
+        <image name="book.fill" catalog="system" width="128" height="95"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="gear" catalog="system" width="128" height="122"/>
         <image name="house" catalog="system" width="128" height="104"/>
