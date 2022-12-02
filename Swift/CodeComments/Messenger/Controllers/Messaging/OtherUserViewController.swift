@@ -11,6 +11,7 @@ import GoogleSignIn
 import SDWebImage
 import FirebaseCore
 import FirebaseDatabase
+import SwiftUI
 
 class OtherUserViewController: UIViewController {
     
@@ -59,7 +60,8 @@ class OtherUserViewController: UIViewController {
         data.append(ProfileViewModel(viewModelType: .info, title: "Occupation: \(pfpOccupation)", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "Coding Language: \(otherUserCodingLanguage)", handler: nil))
         data.append(ProfileViewModel(viewModelType: .button, title: "Rate this teacher", handler: {
-            self.navigationController?.pushViewController(RatingViewController(), animated: true)
+            let vc = UIHostingController(rootView: RatingView())
+            self.present(vc, animated: true)
         }))
         tableView.delegate = self
         tableView.dataSource = self

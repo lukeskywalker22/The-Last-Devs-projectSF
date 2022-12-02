@@ -1,17 +1,18 @@
 # Uncomment the next line to define a global platform for your project
 
-platform :ios, '15.5'
+platform :ios, '16.1'
 
 target 'CodeComments' do
   
 use_frameworks!
 
 # Firebase
+pod 'Firebase'
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
-pod 'FirebaseAnalytics'
+pod 'FirebaseAnalytics', '8.1.0'
 pod 'Firebase/Crashlytics'
 
 # Sign In
