@@ -60,7 +60,8 @@ class OtherUserViewController: UIViewController {
         data.append(ProfileViewModel(viewModelType: .info, title: "Occupation: \(pfpOccupation)", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "Coding Language: \(otherUserCodingLanguage)", handler: nil))
         data.append(ProfileViewModel(viewModelType: .button, title: "Rate this teacher", handler: {
-            let vc = UIHostingController(rootView: RatingView())
+            let ratingView = RatingView(dismissAction: {self.dismiss(animated: true)})
+            let vc = UIHostingController(rootView: ratingView)
             self.present(vc, animated: true)
         }))
         tableView.delegate = self
