@@ -110,7 +110,7 @@ final class ProfileViewController: UIViewController {
             }
             let cancel = UIAlertAction(title: "Cancel", style: .destructive)
             let confirm = UIAlertAction(title: "Confirm", style: .default, handler: { _ in
-                var credential = EmailAuthProvider.credential(withEmail: UserDefaults.standard.value(forKey: "email") as! String, password: (authAlert.textFields?[0].text)!)
+                //var credential = EmailAuthProvider.credential(withEmail: UserDefaults.standard.value(forKey: "email") as! String, password: (authAlert.textFields?[0].text)!)
                 var newPassword = authAlert.textFields?[1].text
                 /*user?.reauthenticate(with: credential) { error, _  in
                  if let error = error {
@@ -122,7 +122,7 @@ final class ProfileViewController: UIViewController {
                  }
                  }*/
                 Auth.auth().currentUser?.updatePassword(to: newPassword!) { (error) in
-                    print(error)
+                    print(error!)
                 }
                 
                 let successAlert = UIAlertController(title: "Success", message: "Password successfully changed", preferredStyle: .alert)
