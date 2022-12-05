@@ -10,6 +10,8 @@
 		12D520F68E66D5735C3CBDF5 /* Pods_CodeComments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFBA5305F4E3CF99F68601C9 /* Pods_CodeComments.framework */; };
 		A80ACCAF28A14844003EA4A7 /* UserGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80ACCAE28A14844003EA4A7 /* UserGuideViewController.swift */; };
 		A8153482282B56CD00B06782 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8153481282B56CD00B06782 /* Extensions.swift */; };
+		A8162E37293BA125004F2C31 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8162E36293BA124004F2C31 /* CourseDetailViewController.swift */; };
+		A8162E3B293BA197004F2C31 /* NewCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8162E3A293BA197004F2C31 /* NewCourseView.swift */; };
 		A81A0B5B2894C4DB0059FB4F /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A82EFF4528958D4D0045F78F /* OtherUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EFF4428958D4D0045F78F /* OtherUserViewController.swift */; };
 		A8306E2528B38A1F00126BC9 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8306E2028B38A1E00126BC9 /* UIAlertController+Extension.swift */; };
@@ -71,6 +73,8 @@
 		A3127384A6A10000F4BCCA9C /* Pods-CodeComments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeComments.release.xcconfig"; path = "Target Support Files/Pods-CodeComments/Pods-CodeComments.release.xcconfig"; sourceTree = "<group>"; };
 		A80ACCAE28A14844003EA4A7 /* UserGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuideViewController.swift; sourceTree = "<group>"; };
 		A8153481282B56CD00B06782 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A8162E36293BA124004F2C31 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
+		A8162E3A293BA197004F2C31 /* NewCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCourseView.swift; sourceTree = "<group>"; };
 		A82EFF4428958D4D0045F78F /* OtherUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserViewController.swift; sourceTree = "<group>"; };
 		A8306E2028B38A1E00126BC9 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		A8306E2128B38A1E00126BC9 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 			children = (
 				A8877E67293B0A1A002AAC3A /* Icons */,
 				A8877E65293B059B002AAC3A /* CoursesTableViewController.swift */,
+				A8162E36293BA124004F2C31 /* CourseDetailViewController.swift */,
+				A8162E3A293BA197004F2C31 /* NewCourseView.swift */,
 			);
 			path = Courses;
 			sourceTree = "<group>";
@@ -506,6 +512,7 @@
 			files = (
 				A8306E2C28B38A4400126BC9 /* MapViewController.swift in Sources */,
 				A8DB57642874778600C8AA05 /* ConversationModels.swift in Sources */,
+				A8162E3B293BA197004F2C31 /* NewCourseView.swift in Sources */,
 				A82EFF4528958D4D0045F78F /* OtherUserViewController.swift in Sources */,
 				A8DB5766287477CA00C8AA05 /* ChatModels.swift in Sources */,
 				A8DB57682874782800C8AA05 /* SearchResult.swift in Sources */,
@@ -520,6 +527,7 @@
 				A8A86F5D28DD64ED00C76DB0 /* EventCell.swift in Sources */,
 				A8306E2D28B38A4400126BC9 /* SchedulingController.swift in Sources */,
 				A8A86F5F28DD64FF00C76DB0 /* ViewController.swift in Sources */,
+				A8162E37293BA125004F2C31 /* CourseDetailViewController.swift in Sources */,
 				A8FF746D28B0BA3100670EB0 /* HomeViewController.swift in Sources */,
 				A881EB0228224877008F9FFA /* NewConversationViewController.swift in Sources */,
 				A8B72D232822447E00007F79 /* ConversationsViewController.swift in Sources */,
@@ -710,7 +718,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.luke.CodeComments;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luke.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -753,7 +761,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.luke.CodeComments;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luke.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

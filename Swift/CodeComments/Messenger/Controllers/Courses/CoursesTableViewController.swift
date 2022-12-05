@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class CoursesTableViewController: UITableViewController {
 
@@ -13,9 +14,22 @@ class CoursesTableViewController: UITableViewController {
     var coursesListDetail = ["Swift is a proprietary programming language developed by Apple for use on its systems", "Flutter is an open-source multiplatform UI solution based on Dart"]
     var imageNames = ["swift.png", "flutter.png"]
 
+    @IBAction func createNewCourse(_ sender: Any) {
+        let vc = UIHostingController(rootView: NewCourseView())
+        self.present(vc, animated: true)
+    }
+    
+    @IBOutlet weak var newCourseButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+        if UserDefaults.standard.value(forKey: "occupation") as! String == "teacher" {
+            newCourseButton.isHidden = false
+        } else {
+            newCourseButton.isHidden = true
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -81,14 +95,14 @@ class CoursesTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let destination = segue.destination as! CourseDetailViewController
+        destination.imageName = imageNames[tableView.indexPathForSelectedRow!.row]
+        destination.courseTitle = coursesList[tableView.indexPathForSelectedRow!.row]
+        destination.courseDetail = coursesListDetail[tableView.indexPathForSelectedRow!.row]
     }
-    */
-
+    
 }
