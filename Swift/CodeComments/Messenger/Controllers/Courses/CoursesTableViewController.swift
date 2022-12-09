@@ -15,7 +15,7 @@ class CoursesTableViewController: UITableViewController {
     var imageNames = ["swift.png", "flutter.png"]
 
     @IBAction func createNewCourse(_ sender: Any) {
-        let vc = UIHostingController(rootView: NewCourseView())
+        let vc = UIHostingController(rootView: NewCourseView(dismissAction: {self.dismiss(animated: true)}))
         self.present(vc, animated: true)
     }
     

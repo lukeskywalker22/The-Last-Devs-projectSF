@@ -34,6 +34,7 @@
 		A89A5EA5286532DB00B9E00E /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89A5EA4286532DB00B9E00E /* NewConversationCell.swift */; };
 		A8A86F5D28DD64ED00C76DB0 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A86F5C28DD64ED00C76DB0 /* EventCell.swift */; };
 		A8A86F5F28DD64FF00C76DB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A86F5E28DD64FF00C76DB0 /* ViewController.swift */; };
+		A8AC48FD29415F3D00EF4B52 /* CourseAdminsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AC48FC29415F3D00EF4B52 /* CourseAdminsViewController.swift */; };
 		A8AE4C5A289811E3004E0E80 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE4C59289811E3004E0E80 /* ProfileViewController.swift */; };
 		A8B72D1F2822447E00007F79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B72D1E2822447E00007F79 /* AppDelegate.swift */; };
 		A8B72D212822447E00007F79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B72D202822447E00007F79 /* SceneDelegate.swift */; };
@@ -96,6 +97,7 @@
 		A89A5EA4286532DB00B9E00E /* NewConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationCell.swift; sourceTree = "<group>"; };
 		A8A86F5C28DD64ED00C76DB0 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		A8A86F5E28DD64FF00C76DB0 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A8AC48FC29415F3D00EF4B52 /* CourseAdminsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAdminsViewController.swift; sourceTree = "<group>"; };
 		A8AE4C59289811E3004E0E80 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A8B72D1B2822447E00007F79 /* CodeComments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeComments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8B72D1E2822447E00007F79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				A8877E65293B059B002AAC3A /* CoursesTableViewController.swift */,
 				A8162E36293BA124004F2C31 /* CourseDetailViewController.swift */,
 				A8162E3A293BA197004F2C31 /* NewCourseView.swift */,
+				A8AC48FC29415F3D00EF4B52 /* CourseAdminsViewController.swift */,
 			);
 			path = Courses;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				A881EAFC28224811008F9FFA /* RegisterViewController.swift in Sources */,
 				A8A86F5D28DD64ED00C76DB0 /* EventCell.swift in Sources */,
 				A8306E2D28B38A4400126BC9 /* SchedulingController.swift in Sources */,
+				A8AC48FD29415F3D00EF4B52 /* CourseAdminsViewController.swift in Sources */,
 				A8A86F5F28DD64FF00C76DB0 /* ViewController.swift in Sources */,
 				A8162E37293BA125004F2C31 /* CourseDetailViewController.swift in Sources */,
 				A8FF746D28B0BA3100670EB0 /* HomeViewController.swift in Sources */,
@@ -712,7 +716,8 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -755,7 +760,8 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

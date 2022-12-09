@@ -1,14 +1,16 @@
 //
-//  NewConversationViewController.swift
-//  Messenger
+//  CourseAdminsViewController.swift
+//  CodeComments
 //
-//  Created by Luke Yeo on 4/5/22.
+//  Created by Luke Yeo on 8/12/22.
 //
 
 import UIKit
 import JGProgressHUD
 
-class NewConversationViewController: UIViewController {
+class CourseAdminsViewController: UIViewController {
+
+    public var query = ""
     
     public var completion: ((SearchResult) -> (Void))?
     
@@ -19,12 +21,6 @@ class NewConversationViewController: UIViewController {
     private var results = [SearchResult]()
     
     private var hasFetched = false
-    
-    private let searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for users by name"
-        return searchBar
-    }()
     
     private let tableView: UITableView = {
         let table = UITableView()
@@ -47,15 +43,14 @@ class NewConversationViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(noResultsLabel)
         view.addSubview(tableView)
-        
+        self.title = query
         tableView.delegate = self
         tableView.dataSource = self
-        
-        searchBar.delegate = self
+    
         view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.topItem?.titleView = searchBar
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(dismissSelf))
-        searchBar.becomeFirstResponder()
+        
+        searchUsersByLanguage(query: query)
     }
     
     override func viewDidLayoutSubviews() {
@@ -70,7 +65,7 @@ class NewConversationViewController: UIViewController {
     
 }
 
-extension NewConversationViewController: UITableViewDelegate, UITableViewDataSource {
+extension CourseAdminsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
@@ -97,41 +92,7 @@ extension NewConversationViewController: UITableViewDelegate, UITableViewDataSou
     }
 }
 
-extension NewConversationViewController: UISearchBarDelegate {
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text, !text.replacingOccurrences(of: " ", with: "").isEmpty else {
-            return
-        }
-        
-        searchBar.resignFirstResponder()
-        
-        results.removeAll()
-        spinner.show(in: view)
-        
-        searchUsers(query: text)
-    }
-    
-    func searchUsers(query: String) {
-        
-        if hasFetched {
-            //if it does filter
-            filterUsers(with: query)
-        } 
-        else {
-            //if not fetch then filter
-            DatabaseManager.shared.getAllUsers(completion: { [weak self] result in
-                switch result {
-                case.success(let usersCollection):
-                    self?.hasFetched = true
-                    self?.users = usersCollection
-                    self?.filterUsers(with: query)
-                case .failure(let error):
-                    print("failed to get users: \(error)")
-                }
-            })
-        }
-    }
+extension CourseAdminsViewController: UISearchBarDelegate {
     
     func searchUsersByLanguage(query: String) {
         

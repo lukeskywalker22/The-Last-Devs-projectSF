@@ -114,7 +114,7 @@ final class RegisterViewController: UIViewController {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = "Coding language you specialise in..."
+        field.placeholder = "Coding language..."
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
         field.backgroundColor = .secondarySystemBackground
@@ -129,7 +129,7 @@ final class RegisterViewController: UIViewController {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = "Enter your status (student/teacher)"
+        field.placeholder = "student/teacher"
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
         field.backgroundColor = .secondarySystemBackground
@@ -165,6 +165,8 @@ final class RegisterViewController: UIViewController {
         // Add subviews
         view.addSubview(scrollView)
         
+        scrollView.isScrollEnabled = true
+        
         scrollView.addSubview(imageView)
         scrollView.addSubview(firstNameField)
         scrollView.addSubview(lastNameField )
@@ -193,17 +195,17 @@ final class RegisterViewController: UIViewController {
         super.viewDidLayoutSubviews()
         scrollView.frame = view.bounds
         let size = scrollView.width/5
-        imageView.frame = CGRect(x: (view.width-size)/2, y: 20, width: size, height: size)
+        imageView.frame = CGRect(x: (view.width-(size+20))/2, y: 20, width: size+20, height: size+20)
         
         imageView.layer.cornerRadius = imageView.width/2.0
         
-        firstNameField.frame = CGRect(x: 30, y: imageView.bottom+10, width: ((scrollView.width-60)/2)-10, height: 52)
-        lastNameField.frame = CGRect(x: firstNameField.right+20, y: imageView.bottom+10, width: ((scrollView.width-60)/2)-10, height: 52)
+        firstNameField.frame = CGRect(x: 30, y: imageView.bottom+20, width: ((scrollView.width-60)/2)-10, height: 52)
+        lastNameField.frame = CGRect(x: firstNameField.right+20, y: imageView.bottom+20, width: ((scrollView.width-60)/2)-10, height: 52)
         emailField.frame = CGRect(x: 30, y: lastNameField.bottom+10, width: scrollView.width-60, height: 52)
         passwordField.frame = CGRect(x: 30, y: emailField.bottom+10, width: scrollView.width-60, height: 52)
         bioField.frame = CGRect(x: 30, y: passwordField.bottom+10, width: scrollView.width-60, height: 52)
-        occupationField.frame = CGRect(x: 30, y: bioField.bottom+10, width: scrollView.width-60, height: 52)
-        languageField.frame = CGRect(x: 30, y: occupationField.bottom+10, width: scrollView.width-60, height: 52)
+        occupationField.frame = CGRect(x: 30, y: bioField.bottom+10, width: ((scrollView.width-60)/2)-10, height: 52)
+        languageField.frame = CGRect(x: occupationField.right + 20, y: bioField.bottom+10, width: ((scrollView.width-60)/2)-10, height: 52)
         registerButton.frame = CGRect(x: 30, y: languageField.bottom+10, width: scrollView.width-60, height: 52)
     }
     

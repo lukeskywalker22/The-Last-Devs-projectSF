@@ -6,48 +6,64 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct NewCourseView: View {
     @State private var courseName: String = ""
     @State private var courseLanguage: String = ""
     @State private var courseDescription: String = ""
+    @State private var courseLimit: String = ""
+    
+    @State private var selectedItem: PhotosPickerItem?
+    @State private var showingAlert: Bool = false
+    
+    var dismissAction: (() -> Void)
+    
+    func showCompletion(){
+        showingAlert = true
+    }
+    
+    func createCourse(){
+        showCompletion()
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
                 VStack {
-                    Button(action: uploadCourseImage){
-                        Image(systemName: "plus.circle")
-                            .font(.system(size: 120))
-                            .foregroundColor(.primary)
+                    PhotosPicker(selection: $selectedItem, matching: .images){
+                        VStack {
+                            Image(systemName: "plus.circle")
+                                .font(.system(size: 120))
+                                .foregroundColor(.white)
+                            Text("Upload cover image")
+                                .padding()
+                        }
                     }
-                    Text("Upload cover image")
-                        .padding()
                 }
                 HStack {
-                    Text("Course name")
-                        .padding(EdgeInsets(top: 20, leading: 40, bottom: 20, trailing: 40))
-                    TextField("Enter course name", text: $courseName).padding()
+                    TextField("Enter course name", text: $courseName).padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
                 }
                 HStack {
-                    Text("Primary language")
-                        .padding(EdgeInsets(top: 20, leading: 40, bottom: 20, trailing: 10))
-                    TextField("Enter primary language", text: $courseLanguage).padding()
+                    TextField("Enter primary coding language", text: $courseLanguage).padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
                 }
                 HStack {
-                    Text("Course description")
-                        .padding(EdgeInsets(top: 20, leading: 40, bottom: 20, trailing: 0))
-                    TextField("Enter description", text: $courseDescription, axis: .vertical)
-                        .padding()
+                    TextField("Enter course description", text: $courseDescription, axis: .vertical)
+                        .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
                         .lineLimit(6)
                 }
                 HStack {
-                    Text("Course limit")
-                        .padding(EdgeInsets(top: 20, leading: 40, bottom: 20, trailing: 55))
-                    TextField("Enter a number", text: $courseLanguage).padding()
+                    TextField("Enter course limit", text: $courseLimit).padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
                 }
                 Button(action: createCourse){
                     Text("Create")
-                }.padding()
+                }
+                .padding()
+                .alert("Course created", isPresented: $showingAlert) {
+                    Button("OK", role: .cancel) {
+                        dismissAction()
+                    }
+                }
             }
         }
     }
@@ -55,9 +71,8 @@ struct NewCourseView: View {
 
 struct NewCourseView_Previews: PreviewProvider {
     static var previews: some View {
-        NewCourseView()
+        NewCourseView(dismissAction: {})
     }
 }
 
 func uploadCourseImage(){}
-func createCourse(){}

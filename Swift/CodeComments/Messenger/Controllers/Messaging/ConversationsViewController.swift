@@ -113,6 +113,7 @@ class ConversationsViewController: UIViewController {
             }
             
             let currentConversations = strongSelf.conversations
+            print(currentConversations)
             
             if let targetConversation = currentConversations.first(where: {
                 $0.otherUserEmail == DatabaseManager.safeEmail(emailAddress: result.email)
@@ -122,6 +123,7 @@ class ConversationsViewController: UIViewController {
                 vc.title = targetConversation.name
                 vc.navigationItem.largeTitleDisplayMode = .never
                 strongSelf.navigationController?.pushViewController(vc, animated: true)
+                print("showing chat")
             } else {
                 strongSelf.createNewConversation(result: result)
             }
@@ -157,7 +159,7 @@ class ConversationsViewController: UIViewController {
         present(navVC, animated: true)
     }
     
-    private func createNewConversation(result: SearchResult) {
+    func createNewConversation(result: SearchResult) {
         let name = result.name
         let email = DatabaseManager.safeEmail(emailAddress: result.email)
         
@@ -251,7 +253,7 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
             let conversationId = conversations[indexPath.row].id
             tableView.beginUpdates()
             self.conversations.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .left)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
             
             DatabaseManager.shared.deleteConversation(conversationId: conversationId, completion: { success in
                 if !success {
