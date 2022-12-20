@@ -1,10 +1,2 @@
-# projectSFApp
-The Last Devs - Project SF
-
-We are The Last Developers
-
-Chosen client: GeeksHacking
-
-Frameworks:
-- iOS UIKit (Swift)
-- Flutter (Dart)
+This is the backend for CodeComments branch that Ayaan created
+If you find his body please look for Luke Yeo
