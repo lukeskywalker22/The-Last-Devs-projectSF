@@ -761,7 +761,7 @@ extension DatabaseManager {
         })
     }
     
-    public func CreateCourse(courseName: String, courseLanguage: String, courseDescription: String, courseLimit: Int) {
+    public func createNewCourse(courseName: String, courseLanguage: String, courseDescription: String, courseLimit: Int) {
         // Add course creation code here
     }
     
