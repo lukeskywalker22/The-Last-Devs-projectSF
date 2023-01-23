@@ -25,7 +25,6 @@ struct NewCourseView: View {
     
     func createCourse(){
         DatabaseManager.shared.createNewCourse(courseName: courseName, courseLanguage: courseLanguage, courseDescription: courseDescription, courseLimit: Int(courseLimit) ?? 0)
-        print(courseLimit)
         showCompletion()
     }
     
