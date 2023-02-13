@@ -112,27 +112,6 @@ extension DiscoverViewController: UISearchBarDelegate {
         searchUsersByLanguage(query: text)
     }
     
-    func searchUsers(query: String) {
-        
-        if hasFetched {
-            //if it does filter
-            filterUsers(with: query)
-        }
-        else {
-            //if not fetch then filter
-            DatabaseManager.shared.getAllUsers(completion: { [weak self] result in
-                switch result {
-                case.success(let usersCollection):
-                    self?.hasFetched = true
-                    self?.users = usersCollection
-                    self?.filterUsers(with: query)
-                case .failure(let error):
-                    print("failed to get users: \(error)")
-                }
-            })
-        }
-    }
-    
     func searchUsersByLanguage(query: String) {
         
         if hasFetched {
@@ -152,39 +131,6 @@ extension DiscoverViewController: UISearchBarDelegate {
                 }
             })
         }
-    }
-    
-    func filterUsers(with term: String) {
-        guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") as? String, hasFetched else {
-            return
-        }
-        
-        let safeEmail = DatabaseManager.safeEmail(emailAddress: currentUserEmail)
-        
-        spinner.dismiss()
-        
-        let results: [SearchResult] = users.filter({
-            guard let email = $0["email"],
-                  email != safeEmail else {
-                return false
-            }
-            
-            guard let name = $0["name"]?.lowercased() else {
-                return false
-            }
-            
-            return name.hasPrefix(term.lowercased())
-        }).compactMap({
-            guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"], let codingLanguage = $0["codingLanguage"] else {
-                return nil
-            }
-            
-            return SearchResult(name: name, email: email, bio: bio, codingLanguage: codingLanguage)
-        })
-        
-        self.results = results
-        
-        updateUI()
     }
     
     func filterUsersByLanguage(with term: String) {
@@ -208,11 +154,11 @@ extension DiscoverViewController: UISearchBarDelegate {
             
             return codingLanguage.hasPrefix(term.lowercased())
         }).compactMap({
-            guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"], let codingLanguage = $0["codingLanguage"] else {
+            guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"], let codingLanguage = $0["codingLanguage"], let course = $0["course"] else {
                 return nil
             }
             
-            return SearchResult(name: name, email: email, bio: bio, codingLanguage: codingLanguage)
+            return SearchResult(name: name, email: email, bio: bio, codingLanguage: codingLanguage, course: course)
         })
         
         self.results = results

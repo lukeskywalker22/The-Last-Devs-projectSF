@@ -10,7 +10,7 @@ import JGProgressHUD
 
 class CourseAdminsViewController: UIViewController {
 
-    public var query = ""
+    public var query = "flutter"
     
     public var completion: ((SearchResult) -> (Void))?
     
@@ -50,7 +50,7 @@ class CourseAdminsViewController: UIViewController {
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(dismissSelf))
         
-        searchUsersByLanguage(query: query)
+        searchUsersByCourse(query: query)
     }
     
     override func viewDidLayoutSubviews() {
@@ -94,20 +94,19 @@ extension CourseAdminsViewController: UITableViewDelegate, UITableViewDataSource
 
 extension CourseAdminsViewController: UISearchBarDelegate {
     
-    func searchUsersByLanguage(query: String) {
-        
+    func searchUsersByCourse(query: String) {
         if hasFetched {
-            //if it does filter
-            filterUsersByLanguage(with: query)
+            //if it has fetched then filter
+            filterUsersByCourse(with: query)
         }
         else {
-            //if not fetch then filter
+            //if has not fetched then filter
             DatabaseManager.shared.getAllUsers(completion: { [weak self] result in
                 switch result {
                 case.success(let usersCollection):
                     self?.hasFetched = true
                     self?.users = usersCollection
-                    self?.filterUsersByLanguage(with: query)
+                    self?.filterUsersByCourse(with: query)
                 case .failure(let error):
                     print("failed to get users: \(error)")
                 }
@@ -115,7 +114,7 @@ extension CourseAdminsViewController: UISearchBarDelegate {
         }
     }
     
-    func filterUsers(with term: String) {
+    func filterUsersByCourse(with term: String) {
         guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") as? String, hasFetched else {
             return
         }
@@ -130,50 +129,17 @@ extension CourseAdminsViewController: UISearchBarDelegate {
                 return false
             }
             
-            guard let name = $0["name"]?.lowercased() else {
+            guard let course = $0["course"]?.lowercased() else {
                 return false
             }
             
-            return name.hasPrefix(term.lowercased())
+            return course.hasPrefix(term.lowercased())
         }).compactMap({
-            guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"], let codingLanguage = $0["codingLanguage"] else {
+            guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"], let codingLanguage = $0["codingLanguage"], let course = $0["course"] else {
                 return nil
             }
             
-            return SearchResult(name: name, email: email, bio: bio, codingLanguage: codingLanguage)
-        })
-        
-        self.results = results
-        
-        updateUI()
-    }
-    
-    func filterUsersByLanguage(with term: String) {
-        guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") as? String, hasFetched else {
-            return
-        }
-        
-        let safeEmail = DatabaseManager.safeEmail(emailAddress: currentUserEmail)
-        
-        spinner.dismiss()
-        
-        let results: [SearchResult] = users.filter({
-            guard let email = $0["email"],
-                  email != safeEmail else {
-                return false
-            }
-            
-            guard let codingLanguage = $0["codingLanguage"]?.lowercased() else {
-                return false
-            }
-            
-            return codingLanguage.hasPrefix(term.lowercased())
-        }).compactMap({
-            guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"], let codingLanguage = $0["codingLanguage"] else {
-                return nil
-            }
-            
-            return SearchResult(name: name, email: email, bio: bio, codingLanguage: codingLanguage)
+            return SearchResult(name: name, email: email, bio: bio, codingLanguage: codingLanguage, course: course)
         })
         
         self.results = results

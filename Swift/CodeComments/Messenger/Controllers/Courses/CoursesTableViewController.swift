@@ -19,6 +19,11 @@ class CoursesTableViewController: UITableViewController {
         self.present(vc, animated: true)
     }
     
+    @IBAction func joinACourse(_ sender: Any) {
+        let vc = UIHostingController(rootView: JoinCourseView(dismissAction: {self.dismiss(animated: true)}))
+        self.present(vc, animated: true)
+    }
+    
     @IBOutlet weak var newCourseButton: UIButton!
     
     override func viewDidLoad() {

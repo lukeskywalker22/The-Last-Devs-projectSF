@@ -12,4 +12,5 @@ struct SearchResult {
     let email: String
     let bio: String
     let codingLanguage: String
+    let course: String
 }

@@ -53,6 +53,7 @@
 		A8EF2465284E2B7B00640C0C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EF2464284E2B7B00640C0C /* ChatViewController.swift */; };
 		A8F8D313287C03AE001DED9B /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8D312287C03AE001DED9B /* CallViewController.swift */; };
 		A8FF746D28B0BA3100670EB0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FF746C28B0BA2B00670EB0 /* HomeViewController.swift */; };
+		A9A9FCE2298E16DE00F3ADA6 /* JoinCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A9FCE1298E16DE00F3ADA6 /* JoinCourseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -119,6 +120,7 @@
 		A8EF2464284E2B7B00640C0C /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A8F8D312287C03AE001DED9B /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
 		A8FF746C28B0BA2B00670EB0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A9A9FCE1298E16DE00F3ADA6 /* JoinCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCourseView.swift; sourceTree = "<group>"; };
 		FFBA5305F4E3CF99F68601C9 /* Pods_CodeComments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeComments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -205,6 +207,7 @@
 				A8162E36293BA124004F2C31 /* CourseDetailViewController.swift */,
 				A8162E3A293BA197004F2C31 /* NewCourseView.swift */,
 				A8AC48FC29415F3D00EF4B52 /* CourseAdminsViewController.swift */,
+				A9A9FCE1298E16DE00F3ADA6 /* JoinCourseView.swift */,
 			);
 			path = Courses;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9A9FCE2298E16DE00F3ADA6 /* JoinCourseView.swift in Sources */,
 				A8306E2C28B38A4400126BC9 /* MapViewController.swift in Sources */,
 				A8DB57642874778600C8AA05 /* ConversationModels.swift in Sources */,
 				A8162E3B293BA197004F2C31 /* NewCourseView.swift in Sources */,

@@ -90,7 +90,13 @@
                             <outlet property="delegate" destination="T6x-pj-N8s" id="OF6-pO-c5n"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Courses" id="iZr-ng-tbV"/>
+                    <navigationItem key="navigationItem" title="Courses" id="iZr-ng-tbV">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="FuT-28-urM">
+                            <connections>
+                                <action selector="joinACourse:" destination="T6x-pj-N8s" id="VfN-Ok-d0X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="newCourseButton" destination="ezn-LB-GfV" id="Dnp-aP-zV0"/>
                     </connections>

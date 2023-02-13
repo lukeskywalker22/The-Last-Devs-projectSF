@@ -25,6 +25,7 @@ struct NewCourseView: View {
     
     func createCourse(){
         DatabaseManager.shared.createNewCourse(courseName: courseName, courseLanguage: courseLanguage, courseDescription: courseDescription, courseLimit: Int(courseLimit) ?? 0)
+        DatabaseManager.shared.joinCourse(email: DatabaseManager.safeEmail(emailAddress: UserDefaults.standard.value(forKey: "email") as! String), courseName: courseName)
         showCompletion()
     }
     

@@ -133,27 +133,6 @@ extension NewConversationViewController: UISearchBarDelegate {
         }
     }
     
-    func searchUsersByLanguage(query: String) {
-        
-        if hasFetched {
-            //if it does filter
-            filterUsersByLanguage(with: query)
-        }
-        else {
-            //if not fetch then filter
-            DatabaseManager.shared.getAllUsers(completion: { [weak self] result in
-                switch result {
-                case.success(let usersCollection):
-                    self?.hasFetched = true
-                    self?.users = usersCollection
-                    self?.filterUsersByLanguage(with: query)
-                case .failure(let error):
-                    print("failed to get users: \(error)")
-                }
-            })
-        }
-    }
-    
     func filterUsers(with term: String) {
         guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") as? String, hasFetched else {
             return
@@ -175,11 +154,11 @@ extension NewConversationViewController: UISearchBarDelegate {
             
             return name.hasPrefix(term.lowercased())
         }).compactMap({
-            guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"], let codingLanguage = $0["codingLanguage"] else {
+            guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"], let codingLanguage = $0["codingLanguage"], let course = $0["course"] else {
                 return nil
             }
             
-            return SearchResult(name: name, email: email, bio: bio, codingLanguage: codingLanguage)
+            return SearchResult(name: name, email: email, bio: bio, codingLanguage: codingLanguage, course: course)
         })
         
         self.results = results
@@ -187,7 +166,7 @@ extension NewConversationViewController: UISearchBarDelegate {
         updateUI()
     }
     
-    func filterUsersByLanguage(with term: String) {
+    /*func filterUsersByLanguage(with term: String) {
         guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") as? String, hasFetched else {
             return
         }
@@ -220,7 +199,7 @@ extension NewConversationViewController: UISearchBarDelegate {
         
         updateUI()
     }
-
+*/
     
     func updateUI() {
         if results.isEmpty {

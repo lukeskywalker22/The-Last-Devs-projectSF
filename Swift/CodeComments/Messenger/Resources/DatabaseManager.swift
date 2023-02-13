@@ -762,7 +762,19 @@ extension DatabaseManager {
     }
     
     public func createNewCourse(courseName: String, courseLanguage: String, courseDescription: String, courseLimit: Int) {
-        // Add course creation code here
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref.child("courses").child(courseName).child("courseLanguage").setValue(courseLanguage)
+        ref.child("courses").child(courseName).child("courseDescription").setValue(courseDescription)
+        ref.child("courses").child(courseName).child("courseLimit").setValue(courseLimit)
+        print("course name: \(courseName); course description: \(courseDescription); course limit: \(courseLimit)")
+    }
+    
+    public func joinCourse(email: String, courseName: String) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref.child("courses").child(courseName).child("enrolment").setValue(["student": DatabaseManager.safeEmail(emailAddress: email)])
+        ref.child(email).child("course").setValue(courseName.lowercased())
     }
     
 }

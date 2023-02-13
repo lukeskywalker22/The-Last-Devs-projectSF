@@ -175,11 +175,11 @@ extension DiscoverTableViewController: UISearchBarDelegate {
             
             return name.hasPrefix(term.lowercased())
         }).compactMap({
-            guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"], let codingLanguage = $0["codingLanguage"] else {
+            guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"], let codingLanguage = $0["codingLanguage"], let course = $0["course"] else {
                 return nil
             }
             
-            return SearchResult(name: name, email: email, bio: bio, codingLanguage: codingLanguage)
+            return SearchResult(name: name, email: email, bio: bio, codingLanguage: codingLanguage, course: course)
         })
         
         self.results = results
@@ -208,11 +208,11 @@ extension DiscoverTableViewController: UISearchBarDelegate {
             
             return codingLanguage.hasPrefix(term.lowercased())
         }).compactMap({
-            guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"], let codingLanguage = $0["codingLanguage"] else {
+            guard let email = $0["email"], let name = $0["name"], let bio = $0["bio"], let codingLanguage = $0["codingLanguage"], let course = $0["course"] else {
                 return nil
             }
             
-            return SearchResult(name: name, email: email, bio: bio, codingLanguage: codingLanguage)
+            return SearchResult(name: name, email: email, bio: bio, codingLanguage: codingLanguage, course: course)
         })
         
         self.results = results
